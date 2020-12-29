@@ -16,6 +16,8 @@
 		D7816FB7259BA8BA009AA224 /* MainWindowSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FB6259BA8BA009AA224 /* MainWindowSideViewController.swift */; };
 		D7816FBF259BA9C6009AA224 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FBE259BA9C6009AA224 /* MainWindowController.swift */; };
 		D7816FC4259BAAA9009AA224 /* MainWindowContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FC3259BAAA9009AA224 /* MainWindowContentViewController.swift */; };
+		D7816FC9259BBD87009AA224 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FC8259BBD87009AA224 /* DispatchQueue.swift */; };
+		D7816FCE259BC718009AA224 /* BaiduTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FCD259BC718009AA224 /* BaiduTranslate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		D7816FB6259BA8BA009AA224 /* MainWindowSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSideViewController.swift; sourceTree = "<group>"; };
 		D7816FBE259BA9C6009AA224 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		D7816FC3259BAAA9009AA224 /* MainWindowContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowContentViewController.swift; sourceTree = "<group>"; };
+		D7816FC8259BBD87009AA224 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
+		D7816FCD259BC718009AA224 /* BaiduTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaiduTranslate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 		D7636F0C259B8FE200D20D90 = {
 			isa = PBXGroup;
 			children = (
+				D7816FCD259BC718009AA224 /* BaiduTranslate.swift */,
+				D7816FC8259BBD87009AA224 /* DispatchQueue.swift */,
 				D7636F17259B8FE200D20D90 /* Translator */,
 				D7636F2A259B8FE500D20D90 /* TranslatorTests */,
 				D7636F35259B8FE500D20D90 /* TranslatorUITests */,
@@ -266,7 +272,9 @@
 				D7636F1B259B8FE200D20D90 /* ViewController.swift in Sources */,
 				D7816FC4259BAAA9009AA224 /* MainWindowContentViewController.swift in Sources */,
 				D7816FBF259BA9C6009AA224 /* MainWindowController.swift in Sources */,
+				D7816FCE259BC718009AA224 /* BaiduTranslate.swift in Sources */,
 				D7636F19259B8FE200D20D90 /* AppDelegate.swift in Sources */,
+				D7816FC9259BBD87009AA224 /* DispatchQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

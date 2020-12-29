@@ -7,9 +7,12 @@
 
 import Cocoa
 import WebKit
+import AppKit
 
 class MainWindowContentViewController: NSViewController {
     @IBOutlet var txtResultDisplay: NSTextView!
+    
+    var storedStringInPasteBoard: String = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,36 @@ class MainWindowContentViewController: NSViewController {
 </html>
 """.data(using: String.Encoding.utf8);
         txtResultDisplay.textStorage!.setAttributedString(NSAttributedString(html: welcomeHTML, documentAttributes: nil)!)
+        
+        // Set timer to check clipbpard
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+            // read from clipboard
+            let strInPasteboard = NSPasteboard.general.string(forType: NSPasteboard.PasteboardType.string)
+            if let str = strInPasteboard {
+                if str == self.storedStringInPasteBoard {
+                    return
+                }
+                self.storedStringInPasteBoard = str;
+                let translatedResult = translateUsingBaiduTranslateAPI(textToTranslate: str, langFrom: "auto", langTo: "zh", appID: "20160628000024160", appKey: "835JS22N3C2PA4Brrrwo")
+                let resultHTML:Data! = """
+        <html>
+        <head>
+            <meta charset="utf-8"/>
+            <style>pre { font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px; }</style>
+        </head>
+        <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; background: #CCC; color: #ff6699; font-size: 15px;">
+            <p style="">TRANSLATED TEXT:</p>
+            <pre style="color: #000">\(translatedResult)</pre>
+            <br/>
+            <p style="">THE ORIGINAL TEXT:</p>
+            <pre style="color: #000">\(str)</pre>
+        </body>
+        </html>
+        """.data(using: String.Encoding.utf8);
+                self.txtResultDisplay.textStorage!.setAttributedString(NSAttributedString(html: resultHTML, documentAttributes: nil)!)
+                self.txtResultDisplay.scrollRangeToVisible(NSRange(location:0, length:0))
+            }
+        }
     }
     
 }
