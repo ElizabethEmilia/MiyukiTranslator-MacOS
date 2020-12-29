@@ -58,6 +58,10 @@ func translateUsingBaiduTranslateAPI(textToTranslate:String!, langFrom:String!, 
     do {
         let dataVal = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: response)
         if let jsonResult = try JSONSerialization.jsonObject(with: dataVal, options: []) as? NSDictionary {
+            print("\(jsonResult)")
+            if jsonResult["trans_result"] == nil {
+                return "Error occurd while translating"
+            }
             let h1 = jsonResult["trans_result"] as! [[String: String]]
             let h2 = h1[0] as! [String: String]
             let h3 = h2["dst"] as! String
