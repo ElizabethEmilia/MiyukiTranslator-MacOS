@@ -34,7 +34,7 @@ class MainWindowContentViewController: NSViewController {
             // read from clipboard
             let strInPasteboard = NSPasteboard.general.string(forType: NSPasteboard.PasteboardType.string)
             if let str = strInPasteboard {
-                if str == self.storedStringInPasteBoard {
+                if str == "" || str == self.storedStringInPasteBoard {
                     return
                 }
                 self.storedStringInPasteBoard = str;

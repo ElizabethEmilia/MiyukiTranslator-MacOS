@@ -56,6 +56,7 @@ func translateUsingBaiduTranslateAPI(textToTranslate:String!, langFrom:String!, 
     let request: NSURLRequest = NSURLRequest(url: url)
     let response: AutoreleasingUnsafeMutablePointer<URLResponse?>?=nil
     do {
+        // TODO: 改为异步调用传handler进去
         let dataVal = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: response)
         if let jsonResult = try JSONSerialization.jsonObject(with: dataVal, options: []) as? NSDictionary {
             print("\(jsonResult)")

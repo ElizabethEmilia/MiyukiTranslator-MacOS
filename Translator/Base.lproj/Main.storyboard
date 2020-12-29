@@ -710,6 +710,9 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
                                     </searchField>
+                                    <connections>
+                                        <action selector="toolbarItem_Search_action:" target="BrY-n6-7T2" id="emX-y9-rRM"/>
+                                    </connections>
                                 </searchToolbarItem>
                                 <toolbarItem implicitItemIdentifier="49B62F1F-A4F9-4E04-9B7B-33B17321828E" label="Preferences" paletteLabel="Preferences" tag="-1" image="NSSmartBadgeTemplate" id="8Og-YT-1OD">
                                     <size key="minSize" width="22" height="22"/>
@@ -729,6 +732,8 @@
                     <connections>
                         <outlet property="toolBarItemSearch" destination="bzd-Qh-OHp" id="8gf-LH-lqt"/>
                         <outlet property="toolbarItem_Preferences" destination="8Og-YT-1OD" id="k5C-rP-Qug"/>
+                        <outlet property="txtLookUp" destination="kt6-50-WXg" id="6gC-lC-suQ"/>
+                        <outlet property="txtLoopUp" destination="kt6-50-WXg" id="9AI-eY-mwe"/>
                         <segue destination="a6P-bf-Nqd" kind="relationship" relationship="window.shadowedContentViewController" id="5zu-d1-rvD"/>
                     </connections>
                 </windowController>
