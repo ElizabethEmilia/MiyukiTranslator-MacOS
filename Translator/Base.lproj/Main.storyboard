@@ -702,7 +702,7 @@
                                 <searchToolbarItem implicitItemIdentifier="1CAF7073-0609-424D-B9FF-6EC6A634F059" label="Search" paletteLabel="Search" visibilityPriority="1001" id="bzd-Qh-OHp">
                                     <nil key="toolTip"/>
                                     <searchField key="view" verticalHuggingPriority="750" textCompletion="NO" id="kt6-50-WXg">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Quick Lookup" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="uKK-PP-zEV">
                                             <font key="font" usesAppearanceFont="YES"/>
@@ -721,8 +721,8 @@
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="ckB-5G-5UJ"/>
+                                <toolbarItem reference="6Ff-qE-sOt"/>
                                 <searchToolbarItem reference="bzd-Qh-OHp"/>
-                                <toolbarItem reference="8Og-YT-1OD"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
