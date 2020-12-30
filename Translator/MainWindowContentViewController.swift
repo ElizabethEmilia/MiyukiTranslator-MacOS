@@ -55,6 +55,9 @@ class MainWindowContentViewController: NSViewController {
                 let fontColor = currentStyle == InterfaceStyle.Light ? "#000" : "#fff"
                 
                 self.storedStringInPasteBoard = str;
+                let strToShow = str.replacingOccurrences(of: "\r", with: "")
+                    .replacingOccurrences(of: "\n", with: "")
+                
                 let resultHTML:Data! = """
         <html>
         <head>
@@ -65,7 +68,7 @@ class MainWindowContentViewController: NSViewController {
             <p style="">TRANSLATING...</p>
             <br/>
             <p style="">THE ORIGINAL TEXT:</p>
-            <pre style="color: \(fontColor)">\(str)</pre>
+            <pre style="color: \(fontColor)">\(strToShow)</pre>
         </body>
         </html>
         """.data(using: String.Encoding.utf8);
@@ -95,7 +98,7 @@ class MainWindowContentViewController: NSViewController {
                     <pre style="color: \(fontColor)">\(translatedResult)</pre>
                     <br/>
                     <p style="">THE ORIGINAL TEXT:</p>
-                    <pre style="color: \(fontColor)">\(str)</pre>
+                    <pre style="color: \(fontColor)">\(strToShow)</pre>
                 </body>
                 </html>
                 """.data(using: String.Encoding.utf8);
