@@ -38,7 +38,6 @@ class MainWindowContentViewController: NSViewController {
                     return
                 }
                 self.storedStringInPasteBoard = str;
-                let translatedResult = translateUsingBaiduTranslateAPI(textToTranslate: str, langFrom: "auto", langTo: "zh", appID: "20160628000024160", appKey: "835JS22N3C2PA4Brrrwo")
                 let resultHTML:Data! = """
         <html>
         <head>
@@ -46,8 +45,7 @@ class MainWindowContentViewController: NSViewController {
             <style>pre { font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px; }</style>
         </head>
         <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; background: #CCC; color: #ff6699; font-size: 15px;">
-            <p style="">TRANSLATED TEXT:</p>
-            <pre style="color: #000">\(translatedResult)</pre>
+            <p style="">TRANSLATING...</p>
             <br/>
             <p style="">THE ORIGINAL TEXT:</p>
             <pre style="color: #000">\(str)</pre>
@@ -56,6 +54,28 @@ class MainWindowContentViewController: NSViewController {
         """.data(using: String.Encoding.utf8);
                 self.txtResultDisplay.textStorage!.setAttributedString(NSAttributedString(html: resultHTML, documentAttributes: nil)!)
                 self.txtResultDisplay.scrollRangeToVisible(NSRange(location:0, length:0))
+                
+                translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: "zh", appID: "20160628000024160", appKey: "835JS22N3C2PA4Brrrwo", onComplete: { (ret: String) in
+                        let translatedResult = ret
+                        let resultHTML:Data! = """
+                <html>
+                <head>
+                    <meta charset="utf-8"/>
+                    <style>pre { font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px; }</style>
+                </head>
+                <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; background: #CCC; color: #ff6699; font-size: 15px;">
+                    <p style="">TRANSLATED TEXT:</p>
+                    <pre style="color: #000">\(translatedResult)</pre>
+                    <br/>
+                    <p style="">THE ORIGINAL TEXT:</p>
+                    <pre style="color: #000">\(str)</pre>
+                </body>
+                </html>
+                """.data(using: String.Encoding.utf8);
+                        self.txtResultDisplay.textStorage!.setAttributedString(NSAttributedString(html: resultHTML, documentAttributes: nil)!)
+                        //self.txtResultDisplay.scrollRangeToVisible(NSRange(location:0, length:0))
+                    }
+                )
             }
         }
     }
