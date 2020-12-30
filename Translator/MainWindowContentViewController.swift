@@ -14,6 +14,15 @@ class MainWindowContentViewController: NSViewController {
     
     var storedStringInPasteBoard: String = "";
     
+    enum InterfaceStyle : String {
+       case Dark, Light
+
+       init() {
+          let type = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") ?? "Light"
+          self = InterfaceStyle(rawValue: type)!
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -37,6 +46,10 @@ class MainWindowContentViewController: NSViewController {
                 if str == "" || str == self.storedStringInPasteBoard {
                     return
                 }
+                // check theme
+                let currentStyle = InterfaceStyle()
+                let fontColor = currentStyle == InterfaceStyle.Light ? "#000" : "#fff"
+                
                 self.storedStringInPasteBoard = str;
                 let resultHTML:Data! = """
         <html>
@@ -44,11 +57,11 @@ class MainWindowContentViewController: NSViewController {
             <meta charset="utf-8"/>
             <style>pre { font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px; }</style>
         </head>
-        <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; background: #CCC; color: #ff6699; font-size: 15px;">
+        <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; color: #ff6699; font-size: 15px;">
             <p style="">TRANSLATING...</p>
             <br/>
             <p style="">THE ORIGINAL TEXT:</p>
-            <pre style="color: #000">\(str)</pre>
+            <pre style="color: \(fontColor)">\(str)</pre>
         </body>
         </html>
         """.data(using: String.Encoding.utf8);
@@ -73,12 +86,12 @@ class MainWindowContentViewController: NSViewController {
                     <meta charset="utf-8"/>
                     <style>pre { font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px; }</style>
                 </head>
-                <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; background: #CCC; color: #ff6699; font-size: 15px;">
+                <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; color: #ff6699; font-size: 15px;">
                     <p style="">TRANSLATED TEXT:</p>
-                    <pre style="color: #000">\(translatedResult)</pre>
+                    <pre style="color: \(fontColor)">\(translatedResult)</pre>
                     <br/>
                     <p style="">THE ORIGINAL TEXT:</p>
-                    <pre style="color: #000">\(str)</pre>
+                    <pre style="color: \(fontColor)">\(str)</pre>
                 </body>
                 </html>
                 """.data(using: String.Encoding.utf8);
