@@ -861,18 +861,18 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView appearanceType="aqua" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHQ-6I-ZXs">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="615"/>
+                                <rect key="frame" x="5" y="5" width="290" height="605"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" drawsBackground="NO" id="AGI-Zc-wFs">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="615"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="605"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" verticallyResizable="YES" findStyle="bar" allowsDocumentBackgroundColorChange="YES" spellingCorrection="YES" smartInsertDelete="YES" id="LES-Xo-0zY">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="615"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="605"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <size key="minSize" width="300" height="615"/>
+                                            <size key="minSize" width="290" height="605"/>
                                             <size key="maxSize" width="377" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>

@@ -17,8 +17,4 @@ class MainWindowSideViewController: NSViewController {
         // Do view setup here.
     }
     
-    override func viewDidAppear() {
-        view.window?.level = .floating
-    }
-    
 }

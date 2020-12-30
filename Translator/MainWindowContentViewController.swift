@@ -23,6 +23,10 @@ class MainWindowContentViewController: NSViewController {
         }
     }
     
+    override func viewDidAppear() {
+        view.window?.level = .floating
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -31,8 +35,8 @@ class MainWindowContentViewController: NSViewController {
         let welcomeHTML:Data! = """
 <html>
 <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; background: #CCC; color: #ff6699; text-align: center;">
-    <p style="font-size: 18px;"><br/><br/><br/>MIYUKI TRANSLATOR</p>
-    <p style="font-size: 12px; color: #888"><br/><br/><br/><br/>BY MIYUKI, IN DECEMBER, 2020</p>
+    <p style="font-size: 18px;"><br/><br/><br/><br/><br/><br/><br/><br/>MIYUKI TRANSLATOR<br/><br/><br/><br/><br/><br/><br/><br/></p>
+    <p style="font-size: 12px; color: #888"><br/><br/><br/><br/><br/>BY MIYUKI, IN DECEMBER, 2020</p>
 </body>
 </html>
 """.data(using: String.Encoding.utf8);
