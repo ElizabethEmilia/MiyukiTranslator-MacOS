@@ -57,6 +57,9 @@ class MainWindowContentViewController: NSViewController {
                 self.storedStringInPasteBoard = str;
                 let strToShow = str.replacingOccurrences(of: "\r", with: "")
                     .replacingOccurrences(of: "\n", with: "")
+                    .replacingOccurrences(of: "&", with: "&amp;")
+                    .replacingOccurrences(of: "<", with: "&lt;")
+                    .replacingOccurrences(of: ">", with: "&gt;")
                 
                 let resultHTML:Data! = """
         <html>
@@ -86,7 +89,8 @@ class MainWindowContentViewController: NSViewController {
                 let langTo:String = nonAsciiCount > charArr.count / 2 ? "en" : "zh"
                 
                 translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: "20160628000024160", appKey: "835JS22N3C2PA4Brrrwo", onComplete: { (ret: String) in
-                        let translatedResult = ret
+                        let translatedResult = ret.replacingOccurrences(of: "<", with: "&lt;")
+                            .replacingOccurrences(of: ">", with: "&gt;")
                         let resultHTML:Data! = """
                 <html>
                 <head>

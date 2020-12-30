@@ -867,7 +867,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="290" height="605"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" drawsBackground="NO" verticallyResizable="YES" findStyle="bar" allowsDocumentBackgroundColorChange="YES" spellingCorrection="YES" smartInsertDelete="YES" id="LES-Xo-0zY">
+                                        <textView editable="NO" drawsBackground="NO" verticallyResizable="YES" selectionGranularity="word" spellingCorrection="YES" smartInsertDelete="YES" id="LES-Xo-0zY">
                                             <rect key="frame" x="0.0" y="0.0" width="290" height="605"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
