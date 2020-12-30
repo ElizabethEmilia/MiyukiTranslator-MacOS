@@ -55,7 +55,17 @@ class MainWindowContentViewController: NSViewController {
                 self.txtResultDisplay.textStorage!.setAttributedString(NSAttributedString(html: resultHTML, documentAttributes: nil)!)
                 self.txtResultDisplay.scrollRangeToVisible(NSRange(location:0, length:0))
                 
-                translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: "zh", appID: "20160628000024160", appKey: "835JS22N3C2PA4Brrrwo", onComplete: { (ret: String) in
+                // 判断是应该中文->英语还是英语->中文
+                let charArr = str.unicodeScalars
+                var nonAsciiCount = 0
+                for char in charArr {
+                    if !char.isASCII {
+                        nonAsciiCount = nonAsciiCount + 1
+                    }
+                }
+                let langTo:String = nonAsciiCount > charArr.count / 2 ? "en" : "zh"
+                
+                translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: "20160628000024160", appKey: "835JS22N3C2PA4Brrrwo", onComplete: { (ret: String) in
                         let translatedResult = ret
                         let resultHTML:Data! = """
                 <html>
