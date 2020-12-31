@@ -57,6 +57,10 @@ func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:Stri
     let queue:OperationQueue = OperationQueue()
     NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: queue, completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
         var ret:String = "";
+        if data == nil {
+            onComplete("Error: Please check network connection.")
+            return
+        }
         do {
             if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
                 print("\(jsonResult)")
