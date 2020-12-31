@@ -125,7 +125,7 @@ class MainWindowContentViewController: NSViewController {
                         nonAsciiCount = nonAsciiCount + 1
                     }
                 }
-                let langTo:String = nonAsciiCount > charArr.count / 2 ? "en" : "zh"
+                let langTo:String = nonAsciiCount > charArr.count / 3 ? "en" : "zh"
                 
                 translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: "20160628000024160", appKey: "835JS22N3C2PA4Brrrwo", onComplete: { (ret: String) in
                     let translatedResult = ret.replacingOccurrences(of: "<", with: "&lt;")

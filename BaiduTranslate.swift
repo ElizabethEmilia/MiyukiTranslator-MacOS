@@ -34,20 +34,35 @@ func generateSignOfBaiduAPI(textToTranslate: String!, saltNumber: Int!, appID: S
     return MD5(string: concatnation)
 }
 
+extension String {
+    
+    func encodeURIComponent() -> String? {
+        var characterSet = NSMutableCharacterSet.alphanumeric()
+        characterSet.addCharacters(in: "-_.!~*'()+&")
+        let _r = self.addingPercentEncoding(withAllowedCharacters: characterSet as CharacterSet)
+        if var r = _r {
+            r = r.replacingOccurrences(of: "+", with: "%2B")
+                .replacingOccurrences(of: "&", with: "%26")
+            return r
+        }
+        return nil
+    }
+}
+
 func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:String!, langTo:String!, appID: String!, appKey: String!, onComplete: @escaping (String)->(Void)) -> Void {
     let baseURL = "https://api.fanyi.baidu.com/api/trans/vip/translate?";
     
     // 处理待翻译的字符串
     let textToTranslate = textToTranslate.replacingOccurrences(of: "\r", with: "")
-        .replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "&", with: " and ")
-    let textToTranslatedEncoded = textToTranslate.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-    
+        .replacingOccurrences(of: "\n", with: "")
     // 生成随机盐
     let saltNumber = Int.random(in: 0...100000)
     
     // 生成签名
     let sign = generateSignOfBaiduAPI(textToTranslate: textToTranslate, saltNumber: saltNumber, appID: appID, appKey: appKey)
     
+    let textToTranslatedEncoded = textToTranslate.encodeURIComponent()
+    print("Encoded: \(textToTranslatedEncoded!)")
     // 拼接GET参
     let params = "q=\(textToTranslatedEncoded!)&from=\(langFrom!)&to=\(langTo!)&appid=\(appID!)&salt=\(saltNumber)&sign=\(sign)"
     let urlToRequest = "\(baseURL)\(params)"
