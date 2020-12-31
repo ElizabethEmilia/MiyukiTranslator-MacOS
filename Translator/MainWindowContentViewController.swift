@@ -30,6 +30,7 @@ class MainWindowContentViewController: NSViewController {
     var shouldUpdateUI = false;
     var translatedResultToUpdate = "";
     var textToTranslateToUpdate = "";
+    var lastPasteboardCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,11 @@ class MainWindowContentViewController: NSViewController {
         
         // Set timer to check clipbpard
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+            let pccount = NSPasteboard.general.changeCount
+            if self.lastPasteboardCount == pccount {
+                return
+            }
+            self.lastPasteboardCount = pccount
             // read from clipboard
             let strInPasteboard = NSPasteboard.general.string(forType: NSPasteboard.PasteboardType.string)
             if let str = strInPasteboard {
