@@ -67,7 +67,7 @@ class MainWindowContentViewController: NSViewController {
     <html>
     <head>
         <meta charset="utf-8"/>
-        <style>pre { -webkit-user-select: text !important; cursor:text; white-space: pre-wrap;  border-radius: 9px; background: rgba\(backColor); padding: 10px; font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px;  word-wrap:break-word; }</style>
+        <style>pre { -webkit-user-select: text !important; cursor:text; white-space: pre-wrap;  border-radius: 9px; background: rgba\(backColor); padding: 10px; font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px;  word-wrap:break-word;  line-height:20px; }</style>
     </head>
     <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; color: #ff6699; font-size: 15px; -webkit-user-select: none; cursor: default; padding: 8px;">
         <p style="">TRANSLATED TEXT:</p>
@@ -112,14 +112,14 @@ class MainWindowContentViewController: NSViewController {
     <html>
     <head>
         <meta charset="utf-8"/>
-        <style>pre { -webkit-user-select: text !important; cursor:text; white-space: pre-wrap;  border-radius: 9px; background: rgba\(backColor); padding: 10px; font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px;  word-wrap:break-word; }</style>
+        <style>pre { -webkit-user-select: text !important; cursor:text; white-space: pre-wrap;  border-radius: 9px; background: rgba\(backColor); padding: 10px; font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px; line-height:20px; word-wrap:break-word; }</style>
     </head>
     <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; color: #ff6699; font-size: 15px; -webkit-user-select: none; cursor: default; padding: 8px;">
         <p style="">TRANSLATING:</p>
         <pre style="color: \(fontColor)88"><i>Translating, please wait...</i></pre>
         <br/>
         <p style="">THE ORIGINAL TEXT:</p>
-        <pre style="color: \(fontColor)">\(self.textToTranslateToUpdate)</pre>
+        <pre style="color: \(fontColor)">\(strToShow)</pre>
         <script>document.body.setAttribute('oncontextmenu', 'event.preventDefault();');</script>
     </body>
     </html>
