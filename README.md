@@ -1,8 +1,10 @@
 # Miyuki Translator (MacOS Version)
 
-<div style="text-align: center">
-    <img src="docs/main-ui.png" alt="drawing" width="200" style="border-radius: 7px"/>
-</div>
+<p align="center">
+<img src="docs/icon.png" width="200px"><br/>
+<b style="font-size: 20px;">Translator</b>
+<br/><br/><br/>
+</p>
 
 ## Introduction
 
@@ -15,6 +17,12 @@ An application than can translate texts from clipboard.
 * MacOS 11.0 Big Sur or above
 
 ## Screenshots
+
+
+<div style="text-align: center">
+    <img src="docs/main-ui.png" alt="main-ui"style="border-radius: 7px"/>
+</div>
+
 
 <img src="docs/example.png" alt="drawing" >
 
