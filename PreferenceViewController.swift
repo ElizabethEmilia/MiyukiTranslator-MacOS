@@ -26,7 +26,7 @@ class PreferenceViewController: NSViewController {
         translateInto.addItems(withTitles: languages)
         
         // Load user defaults
-        var defaults = UserDefaults.standard;
+        let defaults = UserDefaults.standard;
         txtAppID.stringValue = defaults.string(forKey: "API.ID") ?? ""
         txtAppKey.stringValue = defaults.string(forKey:  "API.Key") ?? ""
         translateInto.selectItem(at: defaults.integer(forKey: "translateInto"))

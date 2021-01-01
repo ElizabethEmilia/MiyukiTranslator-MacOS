@@ -29,6 +29,9 @@ class MainWindowContentViewController: NSViewController {
     }
     
     var shouldUpdateUI = false;
+    var occursError = false;
+    var errorMsg = "";
+    
     var translatedResultToUpdate = "";
     var textToTranslateToUpdate = "";
     var lastPasteboardCount = 0
@@ -39,17 +42,7 @@ class MainWindowContentViewController: NSViewController {
         
         // Load initial screen
         resultDisplay.setValue(true, forKey: "drawsTransparentBackground")
-        let welcomeHTML = """
-<html>
-<body style="font-family: Times, 'Times New Roman', 'SongTi SC'; background: rgba(255, 255, 255, 0); color: #ff6699; text-align: center; -webkit-user-select: none; cursor: default !important;">
-    <div style="font-size: 18px; position: absolute; height:80%; width: 100%; top: 0; left: 0; display: flex; justify-content: center; align-items: center; -webkit-user-select: none;">
-        <p>MIYUKI TRANSLATOR</p>
-    </div>
-    <p style="font-size: 12px; color: #888; position: absolute; bottom: 10%; left: 0; width: 100%; -webkit-user-select: none;">BY MIYUKI, IN DECEMBER, 2020</p>
-    <script>document.body.setAttribute('oncontextmenu', 'event.preventDefault();');</script>
-</body>
-</html>
-"""
+        let welcomeHTML = ui_template__main_page()
         resultDisplay.loadHTMLString(welcomeHTML, baseURL: nil)
         
         // Timer to update UI
@@ -63,24 +56,15 @@ class MainWindowContentViewController: NSViewController {
             let fontColor = currentStyle == InterfaceStyle.Light ? "#000" : "#fff"
             let backColor = currentStyle == InterfaceStyle.Light ? "(255,255,255,0.2)" : "(0,0,0,0.2)"
             
-            let resultHTML = """
-    <html>
-    <head>
-        <meta charset="utf-8"/>
-        <style>pre { -webkit-user-select: text !important; cursor:text; white-space: pre-wrap;  border-radius: 9px; background: rgba\(backColor); padding: 10px; font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px;  word-wrap:break-word;  line-height:20px; }</style>
-    </head>
-    <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; color: #ff6699; font-size: 15px; -webkit-user-select: none; cursor: default; padding: 8px;">
-        <p style="">TRANSLATED TEXT:</p>
-        <pre style="color: \(fontColor)">\(self.translatedResultToUpdate)</pre>
-        <br/>
-        <p style="">THE ORIGINAL TEXT:</p>
-        <pre style="color: \(fontColor)">\(self.textToTranslateToUpdate)</pre>
-        <script>document.body.setAttribute('oncontextmenu', 'event.preventDefault();');</script>
-    </body>
-    </html>
-    """
-            self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
-            //self.txtResultDisplay.scrollRangeToVisible(NSRange(location:0, length:0))
+            if !self.occursError {
+                let resultHTML = ui_template_display_result(backColor: backColor, fontColor: fontColor, originalText: self.textToTranslateToUpdate, resultText: self.translatedResultToUpdate)
+                self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
+            }
+            else {
+                self.occursError = false
+                let resultHTML = ui_template__process_info(backColor: backColor, fontColor: fontColor, originalText: self.textToTranslateToUpdate, title: "ERROR", message: self.errorMsg)
+                self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
+            }
         }
         
         // Set timer to check clipbpard
@@ -108,25 +92,8 @@ class MainWindowContentViewController: NSViewController {
                     .replacingOccurrences(of: "<", with: "&lt;")
                     .replacingOccurrences(of: ">", with: "&gt;")
                 
-                let resultHTML = """
-    <html>
-    <head>
-        <meta charset="utf-8"/>
-        <style>pre { -webkit-user-select: text !important; cursor:text; white-space: pre-wrap;  border-radius: 9px; background: rgba\(backColor); padding: 10px; font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px; line-height:20px; word-wrap:break-word; }</style>
-    </head>
-    <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; color: #ff6699; font-size: 15px; -webkit-user-select: none; cursor: default; padding: 8px;">
-        <p style="">TRANSLATING:</p>
-        <pre style="color: \(fontColor)88"><i>Translating, please wait...</i></pre>
-        <br/>
-        <p style="">THE ORIGINAL TEXT:</p>
-        <pre style="color: \(fontColor)">\(strToShow)</pre>
-        <script>document.body.setAttribute('oncontextmenu', 'event.preventDefault();');</script>
-    </body>
-    </html>
-"""
-                self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
-            
-                
+                let resultHTML = ui_template__process_info(backColor: backColor, fontColor: fontColor, originalText: strToShow, title: "TRANSLATING", message: "Translating, please wait...")
+                    
                 // 判断是应该中文->英语还是英语->中文
                 let charArr = str.unicodeScalars
                 var nonAsciiCount = 0
@@ -135,16 +102,49 @@ class MainWindowContentViewController: NSViewController {
                         nonAsciiCount = nonAsciiCount + 1
                     }
                 }
-                let langTo:String = nonAsciiCount > charArr.count / 3 ? "en" : "zh"
                 
-                translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: "20160628000024160", appKey: "835JS22N3C2PA4Brrrwo", onComplete: { (ret: String) in
-                    let translatedResult = ret.replacingOccurrences(of: "<", with: "&lt;")
-                            .replacingOccurrences(of: ">", with: "&gt;")
-                    self.textToTranslateToUpdate = strToShow
-                    self.translatedResultToUpdate = translatedResult
-                    self.shouldUpdateUI = true
+                let isInChinese = nonAsciiCount > charArr.count / 3
+                let doNotTranslateIfInChinese = UserDefaults.standard.integer(forKey: "whenMeetChineseCharacter") == 0
+                let translateToAnotherLanguage = !doNotTranslateIfInChinese
+                
+                if isInChinese && doNotTranslateIfInChinese {
+                    return
+                }
+                
+                // Display translating UI message
+                self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
+            
+                let currLangCode = getCurrentLanguageCode()
+                var langTo = isInChinese ? currLangCode : "zh"
+                if isInChinese && currLangCode == "zh" {
+                    langTo = "en"
+                }
+                print("language to: \(langTo)")
+                
+                translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: UserDefaults.standard.string(forKey: "API.ID"), appKey: UserDefaults.standard.string(forKey: "API.Key"),
+                    onComplete: { (ret: String) in
+                        let translatedResult = ret.replacingOccurrences(of: "<", with: "&lt;")
+                                .replacingOccurrences(of: ">", with: "&gt;")
+                        self.textToTranslateToUpdate = strToShow
+                        self.translatedResultToUpdate = translatedResult
+                        self.shouldUpdateUI = true
+                    },
+                
+                // handle error
+                onError: { (errCode: Int, errmsg: String) in
+                    var errorMessage = errmsg
+                    if errmsg == "UNAUTHORIZED USER" {
+                        errorMessage = "Baidu Translated API ID is incorrect, please go to perference (press command+,) and set Baidu API ID and Secret Key then retry. If you don't have any, you can obtain one from Baidu Translate Offical Site. <br><br> For more information, see &lt;https://fanyi-api.baidu.com/doc/13&gt;";
                     }
-                )
+                    else if errmsg == "Invalid Sign" {
+                        errorMessage = "Please check if your API ID and/or secret key is correct and retry."
+                    }
+                    self.textToTranslateToUpdate = strToShow
+                    self.translatedResultToUpdate = ""
+                    self.errorMsg = errorMessage
+                    self.occursError = true
+                    self.shouldUpdateUI = true
+                })
             }
         }
     }

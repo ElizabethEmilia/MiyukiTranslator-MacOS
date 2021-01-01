@@ -898,19 +898,10 @@
                                     <action selector="selectTranslateInto:" target="cDJ-20-Uvx" id="qYn-ZP-6CK"/>
                                 </connections>
                             </popUpButton>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w2x-w6-4fh">
-                                <rect key="frame" x="54" y="32" width="127" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Chinese Characters:" id="6ND-II-Fmd">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iLS-Zs-gMX">
-                                <rect key="frame" x="191" y="31" width="313" height="18"/>
+                                <rect key="frame" x="191" y="31" width="364" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="radio" title="Do not translate if there are Chinese characters" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="PaM-oy-5qh">
+                                <buttonCell key="cell" type="radio" title="Do not translate if source content is orginally in Chinese" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="PaM-oy-5qh">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -929,6 +920,15 @@
                                     <action selector="chooseChineseCharacterAction:" target="cDJ-20-Uvx" id="Tnd-M0-Lsw"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w2x-w6-4fh">
+                                <rect key="frame" x="64" y="32" width="117" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Simpified Chinese:" id="6ND-II-Fmd">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>

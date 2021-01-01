@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         
         // Initialize user defaults
-        var defaults = UserDefaults.standard;
+        let defaults = UserDefaults.standard;
         defaults.setValue("", forUndefinedKey: "API.ID")
         defaults.setValue("", forUndefinedKey: "API.Key")
         defaults.setValue(0, forUndefinedKey: "translateInto")

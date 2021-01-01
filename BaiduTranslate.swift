@@ -49,7 +49,7 @@ extension String {
     }
 }
 
-func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:String!, langTo:String!, appID: String!, appKey: String!, onComplete: @escaping (String)->(Void)) -> Void {
+func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:String!, langTo:String!, appID: String!, appKey: String!, onComplete: @escaping (String)->(Void), onError: @escaping (Int, String)->(Void)) -> Void {
     let baseURL = "https://api.fanyi.baidu.com/api/trans/vip/translate?";
     
     // 处理待翻译的字符串
@@ -73,15 +73,19 @@ func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:Stri
     NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: queue, completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
         var ret:String = "";
         if data == nil {
-            onComplete("Error: Please check network connection.")
+            onError(-1, "Please check network connection.")
             return
         }
         do {
             if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
                 print("\(jsonResult)")
                 if jsonResult["trans_result"] == nil {
-                    ret = "Error occurd while translating"
-                    onComplete(ret)
+                    if jsonResult["error_code"] == nil {
+                        onError(0, "Unknown error")
+                    }
+                    else {
+                        onError(0, jsonResult["error_msg"] as! String)
+                    }
                     return
                 }
                 let h1 = jsonResult["trans_result"] as! [[String: String]]
@@ -94,6 +98,7 @@ func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:Stri
             }
         } catch let error as NSError {
             ret = "Error: \(error.localizedDescription) \ncode=\(error.code)\ndomain=\(error.domain)"
+            onError(error.code, error.localizedDescription)
         }
         onComplete(ret)
     })
