@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="BrY-n6-7T2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="17506"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="Search Toolbar Item" minToolsVersion="12.0" minSystemVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -860,40 +861,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="615"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView appearanceType="aqua" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHQ-6I-ZXs">
-                                <rect key="frame" x="5" y="5" width="290" height="605"/>
+                            <wkWebView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Esu-p9-3tY" customClass="ResultDisplayWebView" customModule="Translator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="570"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <clipView key="contentView" drawsBackground="NO" id="AGI-Zc-wFs">
-                                    <rect key="frame" x="0.0" y="0.0" width="290" height="605"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textView editable="NO" drawsBackground="NO" verticallyResizable="YES" selectionGranularity="word" spellingCorrection="YES" smartInsertDelete="YES" id="LES-Xo-0zY">
-                                            <rect key="frame" x="0.0" y="0.0" width="290" height="605"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <size key="minSize" width="290" height="605"/>
-                                            <size key="maxSize" width="377" height="10000000"/>
-                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        </textView>
-                                    </subviews>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="bR8-z6-KmB">
-                                    <rect key="frame" x="-100" y="-100" width="225" height="15"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="TUr-z5-gZf">
-                                    <rect key="frame" x="362" y="0.0" width="15" height="300"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="NO"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WjI-I2-ADn"/>
                         <viewLayoutGuide key="layoutMargins" id="b3b-7P-jiN"/>
                     </view>
                     <connections>
-                        <outlet property="txtResultDisplay" destination="LES-Xo-0zY" id="DCV-jS-UjT"/>
-                        <outlet property="txtTextDisplay" destination="LES-Xo-0zY" id="vT7-sp-0pL"/>
+                        <outlet property="resultDisplay" destination="Esu-p9-3tY" id="k0y-Xm-ypy"/>
                     </connections>
                 </viewController>
                 <customObject id="0Tx-ng-2hx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
