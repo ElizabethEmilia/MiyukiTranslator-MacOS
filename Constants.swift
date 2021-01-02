@@ -12,7 +12,11 @@ func constant__get_languages() -> [String] {
 }
 
 func constant__get_language_codes() -> [String] {
-    return ["zh", "en", "yue", "wyw", "jp", "kor", "fra", "spa", "th", "ara", "ru", "pt", "de", "it", "el", "nl", "pl", "bul", "est", "dan", "fin", "cs", "rom", "slo", "swe", "hu", "cht", "vie"]
+    return ["zh", "en", "yue", "wyw", "jp", "kor", "fra", "spa", "th", "ara", "ru", "pt", "de", "it", "el", "nl", "pl", "bul", "est", "dan", "fin", "cs", "rom", "slo", "swe", "hu", "cht"]
+}
+
+func constant__get_national_flags() -> [String] {
+    return ["🇨🇳","🇬🇧","🇨🇳","🇨🇳","🇯🇵","🇰🇷","🇫🇷","🇪🇸","🇹🇭","🇦🇪","🇷🇺","🇵🇹","🇩🇪","🇮🇹","🇬🇷","🇳🇱","🇵🇱","🇧🇬","🇪🇪","🇩🇰","🇫🇮","🇨🇿","🇷🇴","🇸🇮","🇨🇭","🇭🇺","🇨🇳"]
 }
 
 func getCurrentLanguageCode() -> String {

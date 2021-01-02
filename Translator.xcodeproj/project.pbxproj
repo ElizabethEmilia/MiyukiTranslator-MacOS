@@ -580,7 +580,7 @@
 				D7636F3A259B8FE500D20D90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		D7636F3B259B8FE500D20D90 /* Build configuration list for PBXNativeTarget "Translator" */ = {
 			isa = XCConfigurationList;
@@ -589,7 +589,7 @@
 				D7636F3D259B8FE500D20D90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		D7636F3E259B8FE500D20D90 /* Build configuration list for PBXNativeTarget "TranslatorTests" */ = {
 			isa = XCConfigurationList;
@@ -598,7 +598,7 @@
 				D7636F40259B8FE500D20D90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		D7636F41259B8FE500D20D90 /* Build configuration list for PBXNativeTarget "TranslatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -607,7 +607,7 @@
 				D7636F43259B8FE500D20D90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
