@@ -1,9 +1,7 @@
 # Miyuki Translator (MacOS Version)
 
 <p align="center">
-<img src="docs/icon.png" width="200px"><br/>
-<b style="font-size: 20px;">Translator</b>
-<br/><br/><br/>
+<img src="docs/social.png" ><br/>
 </p>
 
 ## Introduction
