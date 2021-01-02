@@ -115,11 +115,11 @@ class MainWindowContentViewController: NSViewController {
                 self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
             
                 let currLangCode = getCurrentLanguageCode()
-                var langTo = isInChinese ? currLangCode : "zh"
+                var langTo = isInChinese || currLangCode != "zh" ? currLangCode : "zh"
                 if isInChinese && currLangCode == "zh" {
                     langTo = "en"
                 }
-                print("language to: \(langTo)")
+                print("language to: \(langTo), currLangCode=\(currLangCode)")
                 
                 translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: UserDefaults.standard.string(forKey: "API.ID"), appKey: UserDefaults.standard.string(forKey: "API.Key"),
                     onComplete: { (ret: String) in
