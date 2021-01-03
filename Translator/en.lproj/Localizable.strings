@@ -15,3 +15,32 @@
 "title.error" = "ERROR";
 
 "title.translating" = "TRANSLATING";
+
+"Chinese"="Chinese";
+"English"="English";
+"Cantonese"="Cantonese";
+"Classical Chinese"="Classical Chinese";
+"Japanese"="Japanese";
+"Korean"="Korean";
+"French"="French";
+"Spanish"="Spanish";
+"Thai"="Thai";
+"Arabic"="Arabic";
+"Russian"="Russian";
+"Portuguese"="Portuguese";
+"German"="German";
+"Italian"="Italian";
+"Greek"="Greek";
+"Dutch"="Dutch";
+"Polish"="Polish";
+"Bulgarian"="Bulgarian";
+"Estonian"="Estonian";
+"Danish"="Danish";
+"Finnish"="Finnish";
+"Czech"="Czech";
+"Romanian"="Romanian";
+"Slovenian"="Slovenian";
+"Swedish"="Swedish";
+"Hungary"="Hungary";
+"Traditional Chinese"="Traditional Chinese";
+

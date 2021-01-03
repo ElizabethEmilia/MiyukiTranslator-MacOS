@@ -15,3 +15,31 @@
 "title.error" = "ERROR";
 
 "title.translating" = "TRANSLATING";
+
+"Chinese"="中文(简体)";
+"English"="英语";
+"Cantonese"="粤语";
+"Classical Chinese"="中文(文言文)";
+"Japanese"="日语";
+"Korean"="朝鲜语";
+"French"="法语";
+"Spanish"="西班牙语";
+"Thai"="泰语";
+"Arabic"="阿拉伯语";
+"Russian"="俄罗斯语";
+"Portuguese"="葡萄牙语";
+"German"="德语";
+"Italian"="意大利语";
+"Greek"="希腊语";
+"Dutch"="荷兰语";
+"Polish"="波兰语";
+"Bulgarian"="保加利亚语";
+"Estonian"="爱沙尼亚语";
+"Danish"="丹麦语";
+"Finnish"="芬兰语";
+"Czech"="捷克语";
+"Romanian"="罗马尼亚语";
+"Slovenian"="斯洛文尼亚语";
+"Swedish"="瑞典语";
+"Hungary"="匈牙利语";
+"Traditional Chinese"="中文(繁体)";

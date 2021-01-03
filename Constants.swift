@@ -8,7 +8,8 @@
 import Foundation
 
 func constant__get_languages() -> [String] {
-    return ["Chinese", "English", "Cantonese", "Classical Chinese", "Japanese", "Korean", "French", "Spanish", "Thai", "Arabic", "Russian", "Portuguese", "German", "Italian", "Greek", "Dutch", "Polish", "Bulgarian", "Estonian", "Danish", "Finnish", "Czech", "Romanian", "Slovenian", "Swedish", "Hungary", "Traditional Chinese"]
+    let lang = ["Chinese", "English", "Cantonese", "Classical Chinese", "Japanese", "Korean", "French", "Spanish", "Thai", "Arabic", "Russian", "Portuguese", "German", "Italian", "Greek", "Dutch", "Polish", "Bulgarian", "Estonian", "Danish", "Finnish", "Czech", "Romanian", "Slovenian", "Swedish", "Hungary", "Traditional Chinese"]
+    return lang.map{ NSLocalizedString($0, comment: "") }
 }
 
 func constant__get_language_codes() -> [String] {

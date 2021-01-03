@@ -23,7 +23,11 @@ class PreferenceViewController: NSViewController {
         
         translateInto.removeAllItems()
         let languages = constant__get_languages()
-        translateInto.addItems(withTitles: languages)
+        let flags = constant__get_national_flags()
+        translateInto.addItems(withTitles: languages.enumerated().map {
+            (index, element) in
+            return "\(flags[index]) \(element)";
+        })
         
         // Load user defaults
         let defaults = UserDefaults.standard;
