@@ -27,6 +27,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
+    @IBAction func viewOnGitHub(_ sender: Any) {
+        let url = URL(string: "https://github.com/ElizabethEmilia/MiyukiTranslator-MacOS")!
+        if NSWorkspace.shared.open(url) {
+            print("default browser was successfully opened")
+
+        }
+    }
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
