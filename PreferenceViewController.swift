@@ -54,7 +54,7 @@ class PreferenceViewController: NSViewController {
     
     @IBAction func selectTranslateInto(_ sender: Any) {
         UserDefaults.standard.setValue(self.translateInto.indexOfSelectedItem, forKey: "translateInto")
-        TranslatrIntoAnotherLanguage.title = "Translate into \(self.translateInto.indexOfSelectedItem == 0 ? "English" : constant__get_languages()[self.translateInto.indexOfSelectedItem])"
+        TranslatrIntoAnotherLanguage.title = "\(NSLocalizedString("Translate Into", comment: ""))\(self.translateInto.indexOfSelectedItem == 0 ? NSLocalizedString("English", comment: "") : constant__get_languages()[self.translateInto.indexOfSelectedItem])"
     }
     
     @IBAction func chooseChineseCharacterAction(_ sender: Any) {
