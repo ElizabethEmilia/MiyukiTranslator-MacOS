@@ -344,41 +344,41 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Format" id="jxT-CU-nIS">
+                            <menuItem title="Format" hidden="YES" id="jxT-CU-nIS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Format" id="GEO-Iw-cKr">
                                     <items>
                                         <menuItem title="Font" id="Gi5-1S-RQB">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Font" systemMenu="font" id="aXa-aM-Jaq">
+                                            <menu key="submenu" title="Font" systemMenu="font" autoenablesItems="NO" id="aXa-aM-Jaq">
                                                 <items>
-                                                    <menuItem title="Show Fonts" keyEquivalent="t" id="Q5e-8K-NDq">
+                                                    <menuItem title="Show Fonts" enabled="NO" keyEquivalent="t" id="Q5e-8K-NDq">
                                                         <connections>
                                                             <action selector="orderFrontFontPanel:" target="YLy-65-1bz" id="WHr-nq-2xA"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Bold" tag="2" keyEquivalent="b" id="GB9-OM-e27">
+                                                    <menuItem title="Bold" tag="2" enabled="NO" keyEquivalent="b" id="GB9-OM-e27">
                                                         <connections>
                                                             <action selector="addFontTrait:" target="YLy-65-1bz" id="hqk-hr-sYV"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Italic" tag="1" keyEquivalent="i" id="Vjx-xi-njq">
+                                                    <menuItem title="Italic" tag="1" enabled="NO" keyEquivalent="i" id="Vjx-xi-njq">
                                                         <connections>
                                                             <action selector="addFontTrait:" target="YLy-65-1bz" id="IHV-OB-c03"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Underline" keyEquivalent="u" id="WRG-CD-K1S">
+                                                    <menuItem title="Underline" enabled="NO" keyEquivalent="u" id="WRG-CD-K1S">
                                                         <connections>
                                                             <action selector="underline:" target="Ady-hI-5gd" id="FYS-2b-JAY"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="5gT-KC-WSO"/>
-                                                    <menuItem title="Bigger" tag="3" keyEquivalent="+" id="Ptp-SP-VEL">
+                                                    <menuItem title="Bigger" tag="3" enabled="NO" keyEquivalent="+" id="Ptp-SP-VEL">
                                                         <connections>
                                                             <action selector="modifyFont:" target="YLy-65-1bz" id="Uc7-di-UnL"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Smaller" tag="4" keyEquivalent="-" id="i1d-Er-qST">
+                                                    <menuItem title="Smaller" tag="4" enabled="NO" keyEquivalent="-" id="i1d-Er-qST">
                                                         <connections>
                                                             <action selector="modifyFont:" target="YLy-65-1bz" id="HcX-Lf-eNd"/>
                                                         </connections>
@@ -388,25 +388,25 @@
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" title="Kern" id="tlD-Oa-oAM">
                                                             <items>
-                                                                <menuItem title="Use Default" id="GUa-eO-cwY">
+                                                                <menuItem title="Use Default" enabled="NO" id="GUa-eO-cwY">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                     <connections>
                                                                         <action selector="useStandardKerning:" target="Ady-hI-5gd" id="6dk-9l-Ckg"/>
                                                                     </connections>
                                                                 </menuItem>
-                                                                <menuItem title="Use None" id="cDB-IK-hbR">
+                                                                <menuItem title="Use None" enabled="NO" id="cDB-IK-hbR">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                     <connections>
                                                                         <action selector="turnOffKerning:" target="Ady-hI-5gd" id="U8a-gz-Maa"/>
                                                                     </connections>
                                                                 </menuItem>
-                                                                <menuItem title="Tighten" id="46P-cB-AYj">
+                                                                <menuItem title="Tighten" enabled="NO" id="46P-cB-AYj">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                     <connections>
                                                                         <action selector="tightenKerning:" target="Ady-hI-5gd" id="hr7-Nz-8ro"/>
                                                                     </connections>
                                                                 </menuItem>
-                                                                <menuItem title="Loosen" id="ogc-rX-tC1">
+                                                                <menuItem title="Loosen" enabled="NO" id="ogc-rX-tC1">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                     <connections>
                                                                         <action selector="loosenKerning:" target="Ady-hI-5gd" id="8i4-f9-FKE"/>
@@ -444,31 +444,31 @@
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" title="Baseline" id="ijk-EB-dga">
                                                             <items>
-                                                                <menuItem title="Use Default" id="3Om-Ey-2VK">
+                                                                <menuItem title="Use Default" enabled="NO" id="3Om-Ey-2VK">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                     <connections>
                                                                         <action selector="unscript:" target="Ady-hI-5gd" id="0vZ-95-Ywn"/>
                                                                     </connections>
                                                                 </menuItem>
-                                                                <menuItem title="Superscript" id="Rqc-34-cIF">
+                                                                <menuItem title="Superscript" enabled="NO" id="Rqc-34-cIF">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                     <connections>
                                                                         <action selector="superscript:" target="Ady-hI-5gd" id="3qV-fo-wpU"/>
                                                                     </connections>
                                                                 </menuItem>
-                                                                <menuItem title="Subscript" id="I0S-gh-46l">
+                                                                <menuItem title="Subscript" enabled="NO" id="I0S-gh-46l">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                     <connections>
                                                                         <action selector="subscript:" target="Ady-hI-5gd" id="Q6W-4W-IGz"/>
                                                                     </connections>
                                                                 </menuItem>
-                                                                <menuItem title="Raise" id="2h7-ER-AoG">
+                                                                <menuItem title="Raise" enabled="NO" id="2h7-ER-AoG">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                     <connections>
                                                                         <action selector="raiseBaseline:" target="Ady-hI-5gd" id="4sk-31-7Q9"/>
                                                                     </connections>
                                                                 </menuItem>
-                                                                <menuItem title="Lower" id="1tx-W0-xDw">
+                                                                <menuItem title="Lower" enabled="NO" id="1tx-W0-xDw">
                                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                                     <connections>
                                                                         <action selector="lowerBaseline:" target="Ady-hI-5gd" id="OF1-bc-KW4"/>
@@ -478,19 +478,19 @@
                                                         </menu>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Ndw-q3-faq"/>
-                                                    <menuItem title="Show Colors" keyEquivalent="C" id="bgn-CT-cEk">
+                                                    <menuItem title="Show Colors" enabled="NO" keyEquivalent="C" id="bgn-CT-cEk">
                                                         <connections>
                                                             <action selector="orderFrontColorPanel:" target="Ady-hI-5gd" id="mSX-Xz-DV3"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="iMs-zA-UFJ"/>
-                                                    <menuItem title="Copy Style" keyEquivalent="c" id="5Vv-lz-BsD">
+                                                    <menuItem title="Copy Style" enabled="NO" keyEquivalent="c" id="5Vv-lz-BsD">
                                                         <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                                         <connections>
                                                             <action selector="copyFont:" target="Ady-hI-5gd" id="GJO-xA-L4q"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Paste Style" keyEquivalent="v" id="vKC-jM-MkH">
+                                                    <menuItem title="Paste Style" enabled="NO" keyEquivalent="v" id="vKC-jM-MkH">
                                                         <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                                         <connections>
                                                             <action selector="pasteFont:" target="Ady-hI-5gd" id="JfD-CL-leO"/>
@@ -501,7 +501,7 @@
                                         </menuItem>
                                         <menuItem title="Text" id="Fal-I4-PZk">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Text" id="d9c-me-L2H">
+                                            <menu key="submenu" title="Text" autoenablesItems="NO" id="d9c-me-L2H">
                                                 <items>
                                                     <menuItem title="Align Left" keyEquivalent="{" id="ZM1-6Q-yy1">
                                                         <connections>
@@ -582,19 +582,19 @@
                                                         </menu>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="fKy-g9-1gm"/>
-                                                    <menuItem title="Show Ruler" id="vLm-3I-IUL">
+                                                    <menuItem title="Show Ruler" enabled="NO" id="vLm-3I-IUL">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="toggleRuler:" target="Ady-hI-5gd" id="FOx-HJ-KwY"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Copy Ruler" keyEquivalent="c" id="MkV-Pr-PK5">
+                                                    <menuItem title="Copy Ruler" enabled="NO" keyEquivalent="c" id="MkV-Pr-PK5">
                                                         <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                                         <connections>
                                                             <action selector="copyRuler:" target="Ady-hI-5gd" id="71i-fW-3W2"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Paste Ruler" keyEquivalent="v" id="LVM-kO-fVI">
+                                                    <menuItem title="Paste Ruler" enabled="NO" keyEquivalent="v" id="LVM-kO-fVI">
                                                         <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                                         <connections>
                                                             <action selector="pasteRuler:" target="Ady-hI-5gd" id="cSh-wd-qM2"/>
@@ -704,7 +704,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="552" height="270"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
-                        <toolbar key="toolbar" implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="WfB-oy-hFn">
+                        <toolbar key="toolbar" implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="WfB-oy-hFn">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="6Ff-qE-sOt"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="ckB-5G-5UJ"/>
@@ -723,10 +723,6 @@
                                         <action selector="toolbarItem_Search_action:" target="BrY-n6-7T2" id="emX-y9-rRM"/>
                                     </connections>
                                 </searchToolbarItem>
-                                <toolbarItem implicitItemIdentifier="49B62F1F-A4F9-4E04-9B7B-33B17321828E" label="Preferences" paletteLabel="Preferences" tag="-1" image="NSSmartBadgeTemplate" id="8Og-YT-1OD">
-                                    <size key="minSize" width="22" height="22"/>
-                                    <size key="maxSize" width="22" height="22"/>
-                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="ckB-5G-5UJ"/>
@@ -740,7 +736,6 @@
                     </window>
                     <connections>
                         <outlet property="toolBarItemSearch" destination="bzd-Qh-OHp" id="8gf-LH-lqt"/>
-                        <outlet property="toolbarItem_Preferences" destination="8Og-YT-1OD" id="k5C-rP-Qug"/>
                         <outlet property="txtLookUp" destination="kt6-50-WXg" id="6gC-lC-suQ"/>
                         <outlet property="txtLoopUp" destination="kt6-50-WXg" id="9AI-eY-mwe"/>
                         <segue destination="a6P-bf-Nqd" kind="relationship" relationship="window.shadowedContentViewController" id="5zu-d1-rvD"/>
@@ -1052,7 +1047,4 @@
             <point key="canvasLocation" x="741" y="413.5"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="NSSmartBadgeTemplate" width="14" height="14"/>
-    </resources>
 </document>
