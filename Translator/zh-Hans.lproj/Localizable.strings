@@ -9,3 +9,9 @@
 "error.invalidSign" = "请检查你填写的API Key是否正确，然后重试。";
 
 "error.unauthorizedUser" = "百度翻译API ID不正确，请打开偏好设置（command+,）并设置APP ID和APP Key以后重试。如果你没有APP ID和APP Key，你可以从百度翻译API官方网站上免费申请一个。<br><br>了解更多信息，请参阅&lt;https://fanyi-api.baidu.com/doc/13&gt;";
+
+"msg.translating" = "正在翻译，请稍等...";
+
+"title.error" = "ERROR";
+
+"title.translating" = "TRANSLATING";

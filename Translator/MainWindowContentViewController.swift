@@ -62,7 +62,7 @@ class MainWindowContentViewController: NSViewController {
             }
             else {
                 self.occursError = false
-                let resultHTML = ui_template__process_info(backColor: backColor, fontColor: fontColor, originalText: self.textToTranslateToUpdate, title: "ERROR", message: self.errorMsg)
+                let resultHTML = ui_template__process_info(backColor: backColor, fontColor: fontColor, originalText: self.textToTranslateToUpdate, title: NSLocalizedString("title.error", comment: ""), message: self.errorMsg)
                 self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
             }
         }
@@ -92,7 +92,7 @@ class MainWindowContentViewController: NSViewController {
                     .replacingOccurrences(of: "<", with: "&lt;")
                     .replacingOccurrences(of: ">", with: "&gt;")
                 
-                let resultHTML = ui_template__process_info(backColor: backColor, fontColor: fontColor, originalText: strToShow, title: "TRANSLATING", message: "Translating, please wait...")
+                let resultHTML = ui_template__process_info(backColor: backColor, fontColor: fontColor, originalText: strToShow, title: NSLocalizedString("title.translating", comment: ""), message: NSLocalizedString("msg.translating", comment: ""))
                     
                 // 判断是应该中文->英语还是英语->中文
                 let charArr = str.unicodeScalars

@@ -10,3 +10,8 @@
 
 "error.unauthorizedUser" = "Baidu Translated API ID is incorrect, please go to perference (press command+,) and set Baidu API ID and Secret Key then retry. If you don't have any, you can obtain one from Baidu Translate Offical Site. <br><br> For more information, see &lt;https://fanyi-api.baidu.com/doc/13&gt;";
 
+"msg.translating" = "Translating, please wait...";
+
+"title.error" = "ERROR";
+
+"title.translating" = "TRANSLATING";
