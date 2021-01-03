@@ -21,6 +21,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.setValue("", forUndefinedKey: "API.Key")
         defaults.setValue(0, forUndefinedKey: "translateInto")
         defaults.setValue(0, forUndefinedKey: "whenMeetChineseCharacter")
+        defaults.setValue(true, forUndefinedKey: "topMost")
+        defaults.setValue(true, forUndefinedKey: "everyDesktop")
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -24,8 +24,28 @@ class MainWindowContentViewController: NSViewController {
         }
     }
     
+    func assignUserDefaultsToWindowState(keyPath: String) {
+        if keyPath == "topMost" {
+            print(UserDefaults.standard.bool(forKey: "topMost"))
+            view.window?.level = UserDefaults.standard.bool(forKey: "topMost") ? .floating : .normal
+        }
+        else if keyPath == "everyDesktop" {
+            view.window?.collectionBehavior = UserDefaults.standard.bool(forKey: "everyDesktop") ? [ .canJoinAllSpaces] : [ .fullScreenNone ]
+        }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == nil { return }
+        assignUserDefaultsToWindowState(keyPath: keyPath!)
+    }
+    
     override func viewDidAppear() {
-        view.window?.level = .floating
+        //view.window?.level = .floating
+        //view.window?.collectionBehavior = [ .canJoinAllSpaces]
+        assignUserDefaultsToWindowState(keyPath: "topMost")
+        assignUserDefaultsToWindowState(keyPath: "everyDesktop")
+        UserDefaults.standard.addObserver(self, forKeyPath: "topMost", options: .new, context: nil)
+        UserDefaults.standard.addObserver(self, forKeyPath: "everyDesktop", options: .new, context: nil)
     }
     
     var shouldUpdateUI = false;

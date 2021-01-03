@@ -13,6 +13,8 @@ class PreferenceViewController: NSViewController {
     @IBOutlet weak var TranslatrIntoAnotherLanguage: NSButton!
     @IBOutlet weak var txtAppID: NSTextField!
     @IBOutlet weak var txtAppKey: NSSecureTextField!
+    @IBOutlet weak var chkTopMost: NSButton!
+    @IBOutlet weak var chkEveryDesktop: NSButton!
     
     override func viewDidAppear() {
         view.window?.level = .floating
@@ -41,6 +43,8 @@ class PreferenceViewController: NSViewController {
         else {
             TranslatrIntoAnotherLanguage.state = .on
         }
+        chkTopMost.state = defaults.bool(forKey: "topMost") ? .on : .off
+        chkEveryDesktop.state = defaults.bool(forKey: "everyDesktop") ? .on : .off
     }
     
     @IBAction func InputAppID(_ sender: Any) {
@@ -63,4 +67,15 @@ class PreferenceViewController: NSViewController {
         }
     }
     
+    @IBAction func changeIfStayOnTop(_ sender: Any) {
+        if let s = sender as? NSButton {
+            UserDefaults.standard.setValue(s.state == .on ? true : false, forKey: "topMost")
+        }
+    }
+    
+    @IBAction func changeIfInEveryDesktop(_ sender: Any) {
+        if let s = sender as? NSButton {
+            UserDefaults.standard.setValue(s.state == .on ? true : false, forKey: "everyDesktop")
+        }
+    }
 }
