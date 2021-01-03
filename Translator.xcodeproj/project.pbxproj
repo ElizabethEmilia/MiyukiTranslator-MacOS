@@ -56,6 +56,7 @@
 		D7636F32259B8FE500D20D90 /* TranslatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranslatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7636F36259B8FE500D20D90 /* TranslatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorUITests.swift; sourceTree = "<group>"; };
 		D7636F38259B8FE500D20D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D77BE88F25A1AAF80075CB3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D7816FB6259BA8BA009AA224 /* MainWindowSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSideViewController.swift; sourceTree = "<group>"; };
 		D7816FBE259BA9C6009AA224 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		D7816FC3259BAAA9009AA224 /* MainWindowContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowContentViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +346,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D7BB4C3625A07274001F8952 /* zh-Hans */,
+				D77BE88F25A1AAF80075CB3C /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

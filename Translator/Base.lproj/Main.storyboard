@@ -836,18 +836,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0br-tJ-mJ2">
-                                <rect key="frame" x="193" y="135" width="195" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="oC5-eL-H12">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <action selector="InputAppID:" target="cDJ-20-Uvx" id="De6-ca-sQf"/>
-                                </connections>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLD-ze-6DE">
                                 <rect key="frame" x="46" y="109" width="135" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -866,21 +854,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="est-MS-RLI">
-                                <rect key="frame" x="193" y="106" width="195" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="dal-KW-fKL">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <allowedInputSourceLocales>
-                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
-                                    </allowedInputSourceLocales>
-                                </secureTextFieldCell>
-                                <connections>
-                                    <action selector="inputAppKey:" target="cDJ-20-Uvx" id="djC-Dv-ByU"/>
-                                </connections>
-                            </secureTextField>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SKf-LW-aN8">
                                 <rect key="frame" x="190" y="56" width="202" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -930,14 +903,41 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="opF-QY-M9B">
+                                <rect key="frame" x="193" y="134" width="195" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="ZMw-wO-HId">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="InputAppID:" target="cDJ-20-Uvx" id="sbH-Tv-V7e"/>
+                                </connections>
+                            </textField>
+                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rS2-Nr-gRy">
+                                <rect key="frame" x="193" y="106" width="195" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="Arc-93-azf">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                                <connections>
+                                    <action selector="inputAppKey:" target="cDJ-20-Uvx" id="27b-ZN-WgE"/>
+                                </connections>
+                            </secureTextField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="TranslatrIntoAnotherLanguage" destination="hJq-6Y-bB2" id="rXW-Of-Wd8"/>
                         <outlet property="doNotTranslateWhenMeetChineseCharacter" destination="iLS-Zs-gMX" id="YXn-RG-snG"/>
                         <outlet property="translateInto" destination="SKf-LW-aN8" id="iKx-gg-fZb"/>
-                        <outlet property="txtAppID" destination="0br-tJ-mJ2" id="7NX-zy-CCg"/>
-                        <outlet property="txtAppKey" destination="est-MS-RLI" id="Cjg-mB-ASA"/>
+                        <outlet property="txtAppID" destination="opF-QY-M9B" id="YFX-g9-NmW"/>
+                        <outlet property="txtAppKey" destination="rS2-Nr-gRy" id="hXS-RW-3Ii"/>
                     </connections>
                 </viewController>
                 <customObject id="qR0-3q-Xoj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

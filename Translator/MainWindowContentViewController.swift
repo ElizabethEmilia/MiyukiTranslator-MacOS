@@ -134,10 +134,10 @@ class MainWindowContentViewController: NSViewController {
                 onError: { (errCode: Int, errmsg: String) in
                     var errorMessage = errmsg
                     if errmsg == "UNAUTHORIZED USER" {
-                        errorMessage = "Baidu Translated API ID is incorrect, please go to perference (press command+,) and set Baidu API ID and Secret Key then retry. If you don't have any, you can obtain one from Baidu Translate Offical Site. <br><br> For more information, see &lt;https://fanyi-api.baidu.com/doc/13&gt;";
+                        errorMessage = NSLocalizedString("error.unauthorizedUser", comment: "")
                     }
                     else if errmsg == "Invalid Sign" {
-                        errorMessage = "Please check if your API ID and/or secret key is correct and retry."
+                        errorMessage = NSLocalizedString("error.invalidSign", comment: "")
                     }
                     self.textToTranslateToUpdate = strToShow
                     self.translatedResultToUpdate = ""

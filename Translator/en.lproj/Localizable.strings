@@ -5,3 +5,8 @@
   Created by Zhixun Liu on 2021/1/2.
   
 */
+
+"error.invalidSign" = "Please check if your API ID and/or secret key is correct and retry.";
+
+"error.unauthorizedUser" = "Baidu Translated API ID is incorrect, please go to perference (press command+,) and set Baidu API ID and Secret Key then retry. If you don't have any, you can obtain one from Baidu Translate Offical Site. <br><br> For more information, see &lt;https://fanyi-api.baidu.com/doc/13&gt;";
+

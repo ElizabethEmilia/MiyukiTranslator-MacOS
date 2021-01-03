@@ -64,7 +64,7 @@ func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:Stri
     let textToTranslatedEncoded = textToTranslate.encodeURIComponent()
     print("Encoded: \(textToTranslatedEncoded!)")
     // 拼接GET参
-    let params = "q=\(textToTranslatedEncoded!)&from=\(langFrom!)&to=\(langTo!)&appid=\(appID!)&salt=\(saltNumber)&sign=\(sign)"
+    let params = "q=\(textToTranslatedEncoded!)&from=\(langFrom!)&to=\(langTo!)&appid=\(appID.encodeURIComponent()!)&salt=\(saltNumber)&sign=\(sign)"
     let urlToRequest = "\(baseURL)\(params)"
     
     let url: URL = URL(string: urlToRequest)!

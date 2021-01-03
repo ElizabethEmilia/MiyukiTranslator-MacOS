@@ -8,11 +8,11 @@
 import Cocoa
 
 class PreferenceViewController: NSViewController {
-    @IBOutlet weak var txtAppID: NSTextField!
-    @IBOutlet weak var txtAppKey: NSSecureTextField!
     @IBOutlet weak var translateInto: NSPopUpButton!
     @IBOutlet weak var doNotTranslateWhenMeetChineseCharacter: NSButton!
     @IBOutlet weak var TranslatrIntoAnotherLanguage: NSButton!
+    @IBOutlet weak var txtAppID: NSTextField!
+    @IBOutlet weak var txtAppKey: NSSecureTextField!
     
     override func viewDidAppear() {
         view.window?.level = .floating
@@ -40,6 +40,7 @@ class PreferenceViewController: NSViewController {
     }
     
     @IBAction func InputAppID(_ sender: Any) {
+        print((sender as! NSTextField).stringValue)
         UserDefaults.standard.setValue((sender as! NSTextField).stringValue, forKey: "API.ID")
     }
     
