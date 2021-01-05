@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.setValue(0, forUndefinedKey: "whenMeetChineseCharacter")
         defaults.setValue(true, forUndefinedKey: "topMost")
         defaults.setValue(true, forUndefinedKey: "everyDesktop")
+        defaults.setValue(true, forUndefinedKey: "lookupDict")
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

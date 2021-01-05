@@ -23,6 +23,7 @@
 		D7F1E863259F7DAB00BBB41B /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F1E862259F7DAB00BBB41B /* PreferenceWindowController.swift */; };
 		D7F1E868259F817200BBB41B /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F1E867259F817200BBB41B /* PreferenceViewController.swift */; };
 		D7F1E86D259F8A2700BBB41B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F1E86C259F8A2700BBB41B /* Constants.swift */; };
+		D7FBF98A25A439ED00968452 /* DictionaryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FBF98925A439ED00968452 /* DictionaryAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D7F1E862259F7DAB00BBB41B /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		D7F1E867259F817200BBB41B /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		D7F1E86C259F8A2700BBB41B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D7FBF98925A439ED00968452 /* DictionaryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		D7636F0C259B8FE200D20D90 = {
 			isa = PBXGroup;
 			children = (
+				D7FBF98925A439ED00968452 /* DictionaryAPI.swift */,
 				D7F1E86C259F8A2700BBB41B /* Constants.swift */,
 				D7F1E867259F817200BBB41B /* PreferenceViewController.swift */,
 				D7816FCD259BC718009AA224 /* BaiduTranslate.swift */,
@@ -289,6 +292,7 @@
 			files = (
 				D7F1E863259F7DAB00BBB41B /* PreferenceWindowController.swift in Sources */,
 				D7F1E86D259F8A2700BBB41B /* Constants.swift in Sources */,
+				D7FBF98A25A439ED00968452 /* DictionaryAPI.swift in Sources */,
 				D7816FD3259BDDA1009AA224 /* MainWindow.swift in Sources */,
 				D7816FB7259BA8BA009AA224 /* MainWindowSideViewController.swift in Sources */,
 				D7636F1B259B8FE200D20D90 /* ViewController.swift in Sources */,

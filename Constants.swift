@@ -75,3 +75,48 @@ func ui_template__process_info(backColor: String, fontColor: String, originalTex
     </html>
 """
 }
+
+func ui_template__dictionary_result(htmlString: String, backColor: String, fontColor: String) -> String {
+    return """
+        <html>
+        <head>
+            <meta charset="utf-8"/>
+            <style>div.m { -webkit-user-select: text !important; cursor:text; border-radius: 9px; background: rgba\(backColor); padding: 10px; font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px;  word-wrap:break-word;  line-height:20px; }</style>
+        </head>
+        <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; color: #ff6699; font-size: 15px; -webkit-user-select: none; cursor: default; padding: 8px;">
+            <textarea name="ot" id="ot" style="display: none;">\(htmlString)</textarea>
+            <script>
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(document.querySelector("#ot").innerHTML.replace(/\\&gt;/g, ">").replace(/\\&lt;/g, "<"),"text/html");
+                var word = doc.querySelector(".k").innerHTML;
+                var pron = doc.querySelector(".p").innerHTML;
+                var meaning = doc.querySelector("#e").innerHTML.split("<br>");
+                var sentenses = doc.querySelector("#s").innerHTML.split("<br>")
+                                    .map(e => e.replace(/\\<i\\>(\\d+)\\<\\/i\\>\\.\\s/g, ""))
+                                    .filter(e => e != "");
+                console.log(sentenses)
+                sentenses = Array(parseInt(sentenses.length / 2)).fill(0)
+                                    .map((_,i) => ({'en': sentenses[i*2], 'cn': sentenses[i*2+1]}));
+            </script>
+            
+            <div class="m" style="color: \(fontColor); padding: 20px 10px 20px 10px">
+                <span style="color: ff6699; font-size: 25px; font-weight: bold; margin-right: 15px;">
+                    <script>document.write(word);</script>
+                </span>
+                <span style="color: #888"><script>document.write(pron);</script></span><br>
+                <p></p>
+                    <script> document.write(meaning.map((e, i)=>`<span>${i+1}. ${e}</span><br>`).join('')); </script>
+                    <hr>
+                    <script>
+                        document.write(sentenses.map((e, i)=>`
+                            <span><span>${e.en}</span>\n
+                            <span style="color: #888">${e.cn}</span></span><br/>`
+                        ).join(''));
+                    </script>
+            </div>
+            <br/>
+            <script>document.body.setAttribute('oncontextmenu', 'event.preventDefault();');</script>
+        </body>
+    </html>
+"""
+}

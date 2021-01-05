@@ -99,6 +99,7 @@ func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:Stri
         } catch let error as NSError {
             ret = "Error: \(error.localizedDescription) \ncode=\(error.code)\ndomain=\(error.domain)"
             onError(error.code, error.localizedDescription)
+            return
         }
         onComplete(ret)
     })

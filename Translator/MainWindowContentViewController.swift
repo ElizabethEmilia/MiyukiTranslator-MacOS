@@ -50,11 +50,53 @@ class MainWindowContentViewController: NSViewController {
     
     var shouldUpdateUI = false;
     var occursError = false;
+    var isDictionaryResult = false;
+    var dictResultHTML = "";
     var errorMsg = "";
     
     var translatedResultToUpdate = "";
     var textToTranslateToUpdate = "";
     var lastPasteboardCount = 0
+    
+    func translateWithBaidu(str: String, strToShow: String, langTo: String) {
+        translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: UserDefaults.standard.string(forKey: "API.ID"), appKey: UserDefaults.standard.string(forKey: "API.Key"),
+            onComplete: { (ret: String) in
+                let translatedResult = ret.replacingOccurrences(of: "<", with: "&lt;")
+                        .replacingOccurrences(of: ">", with: "&gt;")
+                self.textToTranslateToUpdate = strToShow
+                self.translatedResultToUpdate = translatedResult
+                self.shouldUpdateUI = true
+            },
+        
+        // handle error
+        onError: { (errCode: Int, errmsg: String) in
+            var errorMessage = errmsg
+            if errmsg == "UNAUTHORIZED USER" {
+                errorMessage = NSLocalizedString("error.unauthorizedUser", comment: "")
+            }
+            else if errmsg == "Invalid Sign" {
+                errorMessage = NSLocalizedString("error.invalidSign", comment: "")
+            }
+            self.textToTranslateToUpdate = strToShow
+            self.translatedResultToUpdate = ""
+            self.errorMsg = errorMessage
+            self.occursError = true
+            self.shouldUpdateUI = true
+        })
+    }
+    
+    func lookupDictionary(word: String) {
+        lookupDictionaryAsync(word: word, onComplete: {
+            (html: String) in
+            self.isDictionaryResult = true
+            self.dictResultHTML = html
+            self.shouldUpdateUI = true
+        }, onError: {
+            (code: Int, msg: String) in
+            print("Dictionary: code=\(code)  message=\(msg)")
+            self.translateWithBaidu(str: word, strToShow: word, langTo: "zh")
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,13 +118,19 @@ class MainWindowContentViewController: NSViewController {
             let fontColor = currentStyle == InterfaceStyle.Light ? "#000" : "#fff"
             let backColor = currentStyle == InterfaceStyle.Light ? "(255,255,255,0.2)" : "(0,0,0,0.2)"
             
-            if !self.occursError {
-                let resultHTML = ui_template_display_result(backColor: backColor, fontColor: fontColor, originalText: self.textToTranslateToUpdate, resultText: self.translatedResultToUpdate)
+            if self.occursError {
+                self.occursError = false
+                let resultHTML = ui_template__process_info(backColor: backColor, fontColor: fontColor, originalText: self.textToTranslateToUpdate, title: NSLocalizedString("title.error", comment: ""), message: self.errorMsg)
+                self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
+            }
+            else if self.isDictionaryResult {
+                self.isDictionaryResult = false
+                let resultHTML = ui_template__dictionary_result(htmlString: self.dictResultHTML, backColor: backColor, fontColor: fontColor)
+                print(resultHTML)
                 self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
             }
             else {
-                self.occursError = false
-                let resultHTML = ui_template__process_info(backColor: backColor, fontColor: fontColor, originalText: self.textToTranslateToUpdate, title: NSLocalizedString("title.error", comment: ""), message: self.errorMsg)
+                let resultHTML = ui_template_display_result(backColor: backColor, fontColor: fontColor, originalText: self.textToTranslateToUpdate, resultText: self.translatedResultToUpdate)
                 self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
             }
         }
@@ -117,13 +165,20 @@ class MainWindowContentViewController: NSViewController {
                 // 判断是应该中文->英语还是英语->中文
                 let charArr = str.unicodeScalars
                 var nonAsciiCount = 0
-                for char in charArr {
-                    if !char.isASCII {
+                var nonLetterCount = 0
+                for char in str {
+                    if char.isASCII {
+                        if !char.isLetter {
+                            nonLetterCount = nonLetterCount + 1
+                        }
+                    }
+                    else {
                         nonAsciiCount = nonAsciiCount + 1
                     }
                 }
                 
                 let isInChinese = nonAsciiCount > charArr.count / 3
+                let isEnglishWord = nonLetterCount == 0
                 let doNotTranslateIfInChinese = UserDefaults.standard.integer(forKey: "whenMeetChineseCharacter") == 0
                 let translateToAnotherLanguage = !doNotTranslateIfInChinese
                 
@@ -134,6 +189,7 @@ class MainWindowContentViewController: NSViewController {
                 // Display translating UI message
                 self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
             
+                // Baidu Translate Information
                 let currLangCode = getCurrentLanguageCode()
                 var langTo = isInChinese || currLangCode != "zh" ? currLangCode : "zh"
                 if isInChinese && currLangCode == "zh" {
@@ -141,30 +197,14 @@ class MainWindowContentViewController: NSViewController {
                 }
                 print("language to: \(langTo), currLangCode=\(currLangCode)")
                 
-                translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: UserDefaults.standard.string(forKey: "API.ID"), appKey: UserDefaults.standard.string(forKey: "API.Key"),
-                    onComplete: { (ret: String) in
-                        let translatedResult = ret.replacingOccurrences(of: "<", with: "&lt;")
-                                .replacingOccurrences(of: ">", with: "&gt;")
-                        self.textToTranslateToUpdate = strToShow
-                        self.translatedResultToUpdate = translatedResult
-                        self.shouldUpdateUI = true
-                    },
-                
-                // handle error
-                onError: { (errCode: Int, errmsg: String) in
-                    var errorMessage = errmsg
-                    if errmsg == "UNAUTHORIZED USER" {
-                        errorMessage = NSLocalizedString("error.unauthorizedUser", comment: "")
-                    }
-                    else if errmsg == "Invalid Sign" {
-                        errorMessage = NSLocalizedString("error.invalidSign", comment: "")
-                    }
-                    self.textToTranslateToUpdate = strToShow
-                    self.translatedResultToUpdate = ""
-                    self.errorMsg = errorMessage
-                    self.occursError = true
-                    self.shouldUpdateUI = true
-                })
+                // If is English word and set to look up in dictionary
+                if UserDefaults.standard.bool(forKey: "lookupDict") && isEnglishWord && langTo == "zh" {
+                    self.lookupDictionary(word: str)
+                }
+                // Otherwise
+                else {
+                    self.translateWithBaidu(str: str, strToShow: strToShow, langTo: langTo)
+                }
             }
         }
     }
