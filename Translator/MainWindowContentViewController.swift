@@ -166,10 +166,14 @@ class MainWindowContentViewController: NSViewController {
                 let charArr = str.unicodeScalars
                 var nonAsciiCount = 0
                 var nonLetterCount = 0
+                var spaceCount = 0
                 for char in str {
                     if char.isASCII {
                         if !char.isLetter {
                             nonLetterCount = nonLetterCount + 1
+                        }
+                        if char.asciiValue == 32 {
+                            spaceCount = spaceCount + 1
                         }
                     }
                     else {
@@ -188,6 +192,9 @@ class MainWindowContentViewController: NSViewController {
                 
                 // Display translating UI message
                 self.resultDisplay.loadHTMLString(resultHTML, baseURL: nil)
+                
+                // 最大允许的短语长度（用于查词典）
+                let allowedParseLength = 4
             
                 // Baidu Translate Information
                 let currLangCode = getCurrentLanguageCode()
@@ -198,7 +205,9 @@ class MainWindowContentViewController: NSViewController {
                 print("language to: \(langTo), currLangCode=\(currLangCode)")
                 
                 // If is English word and set to look up in dictionary
-                if UserDefaults.standard.bool(forKey: "lookupDict") && isEnglishWord && langTo == "zh" {
+                if UserDefaults.standard.bool(forKey: "lookupDict")
+                    && (isEnglishWord || (nonLetterCount - max(spaceCount, allowedParseLength-1) <= 0))
+                    && langTo == "zh" {
                     self.lookupDictionary(word: str)
                 }
                 // Otherwise
