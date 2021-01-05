@@ -81,7 +81,9 @@ func ui_template__dictionary_result(htmlString: String, backColor: String, fontC
         <html>
         <head>
             <meta charset="utf-8"/>
-            <style>div.m { -webkit-user-select: text !important; cursor:text; border-radius: 9px; background: rgba\(backColor); padding: 10px; font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px;  word-wrap:break-word;  line-height:20px; }</style>
+            <style>div.m { -webkit-user-select: text !important; cursor:text; border-radius: 9px; background: rgba\(backColor); padding: 10px; font-family: Times, 'Times New Roman', 'SongTi SC'; font-size: 15px;  word-wrap:break-word;  line-height:20px; }
+                hr { border: none; border-top: 1px solid #88888830; }
+        </style>
         </head>
         <body style="font-family: Times, 'Times New Roman', 'SongTi SC'; color: #ff6699; font-size: 15px; -webkit-user-select: none; cursor: default; padding: 8px;">
             <textarea name="ot" id="ot" style="display: none;">\(htmlString)</textarea>
