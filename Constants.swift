@@ -92,7 +92,10 @@ func ui_template__dictionary_result(htmlString: String, backColor: String, fontC
                 var doc = parser.parseFromString(document.querySelector("#ot").innerHTML.replace(/\\&gt;/g, ">").replace(/\\&lt;/g, "<"),"text/html");
                 var word = doc.querySelector(".k").innerHTML;
                 var pron = doc.querySelector(".p").innerHTML;
-                var meaning = doc.querySelector("#e").innerHTML.split("<br>");
+                var meaning = doc.querySelector("#e").innerHTML.split("<br>").map((e) => {
+                                var p = e.split('.')
+                                return e.replace(p[0]+'.', "<span style='margin-right: 9px; display: inline-block;'><em>" + e[0] + ".</em></span>")
+                            });
                 var sentenses = doc.querySelector("#s").innerHTML.split("<br>")
                                     .map(e => e.replace(/\\<i\\>(\\d+)\\<\\/i\\>\\.\\s/g, ""))
                                     .filter(e => e != "");
@@ -105,7 +108,7 @@ func ui_template__dictionary_result(htmlString: String, backColor: String, fontC
                 <span style="color: ff6699; font-size: 25px; font-weight: bold; margin-right: 15px;">
                     <script>document.write(word);</script>
                 </span>
-                <span style="color: #888"><script>document.write(pron);</script></span><br>
+                <span style="color: #888; display: inline-block"><script>document.write(pron);</script></span><br>
                 <p></p>
                     <script> document.write(meaning.map((e, i)=>`<span>${i+1}. ${e}</span><br>`).join('')); </script>
                     <hr>
