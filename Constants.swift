@@ -94,7 +94,7 @@ func ui_template__dictionary_result(htmlString: String, backColor: String, fontC
                 var pron = doc.querySelector(".p").innerHTML;
                 var meaning = doc.querySelector("#e").innerHTML.split("<br>").map((e) => {
                                 var p = e.split('.')
-                                return e.replace(p[0]+'.', "<span style='margin-right: 9px; display: inline-block;'><em>" + e[0] + ".</em></span>")
+                                return e.replace(p[0]+'.', "<span style='width: 40px; display: inline-block; color: #888'><em>" + p[0] + ".</em></span>")
                             });
                 var sentenses = doc.querySelector("#s").innerHTML.split("<br>")
                                     .map(e => e.replace(/\\<i\\>(\\d+)\\<\\/i\\>\\.\\s/g, ""))
@@ -110,7 +110,7 @@ func ui_template__dictionary_result(htmlString: String, backColor: String, fontC
                 </span>
                 <span style="color: #888; display: inline-block"><script>document.write(pron);</script></span><br>
                 <p></p>
-                    <script> document.write(meaning.map((e, i)=>`<span>${i+1}. ${e}</span><br>`).join('')); </script>
+                    <script> document.write(meaning.map((e, i)=>`<span> ${e}</span><br>`).join('')); </script>
                     <hr>
                     <script>
                         document.write(sentenses.map((e, i)=>`
