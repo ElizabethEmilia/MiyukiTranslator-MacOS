@@ -823,7 +823,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rh1-sL-X0U">
-                                <rect key="frame" x="27" y="238" width="604" height="44"/>
+                                <rect key="frame" x="27" y="263" width="604" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" selectable="YES" title="Baidu Translation API ID &amp; secret code is required as  this program utilizes Baidu Translate Service. " id="Yjw-R0-xD5">
                                     <font key="font" usesAppearanceFont="YES"/>
