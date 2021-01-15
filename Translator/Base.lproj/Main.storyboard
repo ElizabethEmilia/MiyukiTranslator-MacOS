@@ -986,6 +986,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="helpButtonClick:" target="cDJ-20-Uvx" id="KXZ-Cv-qob"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>

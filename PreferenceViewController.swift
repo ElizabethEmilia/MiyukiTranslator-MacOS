@@ -80,6 +80,10 @@ class PreferenceViewController: NSViewController, NSTextFieldDelegate {
         }
     }
     
+    @IBAction func helpButtonClick(_ sender: Any) {
+        
+    }
+    
     func controlTextDidChange(_ obj: Notification) {
         print("edited: ")
         if let textField = obj.object as? NSTextField, self.txtAppID.identifier == textField.identifier {
