@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class PreferenceViewController: NSViewController {
+class PreferenceViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var translateInto: NSPopUpButton!
     @IBOutlet weak var doNotTranslateWhenMeetChineseCharacter: NSButton!
     @IBOutlet weak var TranslatrIntoAnotherLanguage: NSButton!
@@ -35,7 +35,9 @@ class PreferenceViewController: NSViewController {
         // Load user defaults
         let defaults = UserDefaults.standard;
         txtAppID.stringValue = defaults.string(forKey: "API.ID") ?? ""
+        txtAppID.delegate = self
         txtAppKey.stringValue = defaults.string(forKey:  "API.Key") ?? ""
+        txtAppKey.delegate = self
         translateInto.selectItem(at: defaults.integer(forKey: "translateInto"))
         self.selectTranslateInto(translateInto!)
         if defaults.integer(forKey: "whenMeetChineseCharacter") == 0 {
@@ -47,15 +49,6 @@ class PreferenceViewController: NSViewController {
         chkTopMost.state = defaults.bool(forKey: "topMost") ? .on : .off
         chkEveryDesktop.state = defaults.bool(forKey: "everyDesktop") ? .on : .off
         chkLookupInDict.state = defaults.bool(forKey: "lookupDict") ? .on : .off
-    }
-    
-    @IBAction func InputAppID(_ sender: Any) {
-        print((sender as! NSTextField).stringValue)
-        UserDefaults.standard.setValue((sender as! NSTextField).stringValue, forKey: "API.ID")
-    }
-    
-    @IBAction func inputAppKey(_ sender: Any) {
-        UserDefaults.standard.setValue((sender as! NSTextField).stringValue, forKey: "API.Key")
     }
     
     @IBAction func selectTranslateInto(_ sender: Any) {
@@ -84,6 +77,18 @@ class PreferenceViewController: NSViewController {
     @IBAction func changeIfInEveryDesktop(_ sender: Any) {
         if let s = sender as? NSButton {
             UserDefaults.standard.setValue(s.state == .on, forKey: "everyDesktop")
+        }
+    }
+    
+    func controlTextDidChange(_ obj: Notification) {
+        print("edited: ")
+        if let textField = obj.object as? NSTextField, self.txtAppID.identifier == textField.identifier {
+            UserDefaults.standard.setValue(textField.stringValue, forKey: "API.ID")
+            print(textField.stringValue)
+        }
+        else if let textField = obj.object as? NSTextField, self.txtAppKey.identifier == textField.identifier {
+            UserDefaults.standard.setValue(textField.stringValue, forKey: "API.Key")
+            print(textField.stringValue)
         }
     }
 }

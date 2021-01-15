@@ -92,10 +92,7 @@ func ui_template__dictionary_result(htmlString: String, backColor: String, fontC
                 var doc = parser.parseFromString(document.querySelector("#ot").innerHTML.replace(/\\&gt;/g, ">").replace(/\\&lt;/g, "<"),"text/html");
                 var word = doc.querySelector(".k").innerHTML;
                 var pron = doc.querySelector(".p").innerHTML;
-                var meaning = doc.querySelector("#e").innerHTML.split("<br>").map((e) => {
-                                var p = e.split('.')
-                                return e.replace(p[0]+'.', "<span style='width: 40px; display: inline-block; color: #888'><em>" + p[0] + ".</em></span>")
-                            });
+                var meaning = doc.querySelector("#e").innerHTML.split("<br>").map((e) => e.replace(/^\\w+\\./, r => "<span style='width: 40px; display: inline-block; color: #888'><em>" + r + "</em></span>"));
                 var sentenses = doc.querySelector("#s").innerHTML.split("<br>")
                                     .map(e => e.replace(/\\<i\\>(\\d+)\\<\\/i\\>\\.\\s/g, ""))
                                     .filter(e => e != "");

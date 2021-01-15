@@ -53,8 +53,8 @@ func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:Stri
     let baseURL = "https://api.fanyi.baidu.com/api/trans/vip/translate?";
     
     // 处理待翻译的字符串
-    let textToTranslate = textToTranslate.replacingOccurrences(of: "\r", with: "")
-        .replacingOccurrences(of: "\n", with: "")
+    let textToTranslate = textToTranslate.replacingOccurrences(of: "\r", with: " ")
+        .replacingOccurrences(of: "\n", with: " ")
     // 生成随机盐
     let saltNumber = Int.random(in: 0...100000)
     

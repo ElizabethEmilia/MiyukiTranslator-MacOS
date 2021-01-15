@@ -154,8 +154,8 @@ class MainWindowContentViewController: NSViewController {
                 let backColor = currentStyle == InterfaceStyle.Light ? "(255,255,255,0.2)" : "(0,0,0,0.2)"
                 
                 self.storedStringInPasteBoard = str;
-                let strToShow = str.replacingOccurrences(of: "\r", with: "")
-                    .replacingOccurrences(of: "\n", with: "")
+                let strToShow = str.replacingOccurrences(of: "\r", with: " ")
+                    .replacingOccurrences(of: "\n", with: " ")
                     .replacingOccurrences(of: "&", with: "&amp;")
                     .replacingOccurrences(of: "<", with: "&lt;")
                     .replacingOccurrences(of: ">", with: "&gt;")
