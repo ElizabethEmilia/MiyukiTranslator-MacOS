@@ -34,7 +34,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let url = URL(string: "https://github.com/ElizabethEmilia/MiyukiTranslator-MacOS")!
         if NSWorkspace.shared.open(url) {
             print("default browser was successfully opened")
-
         }
     }
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

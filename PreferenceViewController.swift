@@ -81,7 +81,10 @@ class PreferenceViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func helpButtonClick(_ sender: Any) {
-        
+        let url = URL(string: NSLocalizedString("help_url", comment: ""))!
+        if NSWorkspace.shared.open(url) {
+            print("default browser was successfully opened")
+        }
     }
     
     func controlTextDidChange(_ obj: Notification) {
