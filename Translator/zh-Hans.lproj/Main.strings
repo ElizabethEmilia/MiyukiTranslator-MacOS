@@ -452,10 +452,17 @@
 /* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "z6F-FW-3nz"; */
 "35U-T0-mhv.title" = "在GitHub上查看源代码";
 
-"MMA-ZM-bS6.title" = "将此程序窗口始终置于其他窗口的顶层";
+/* Class = "NSTextFieldCell"; title = "Window Behavior:"; ObjectID = "YLv-rQ-LG9"; */
+"YLv-rQ-LG9.title" = "窗口行为:";
 
-"aMR-3l-ooN.title" = "在所有的桌面显示此程序";
+/* Class = "NSButtonCell"; title = "Make this application always stay on top"; ObjectID = "Oyg-63-hd1"; */
+"Oyg-63-hd1.title" = "置顶本应用的窗口";
 
-"tLz-aY-UEd.title" = "窗口行为:";
+/* Class = "NSButtonCell"; title = "Make this application stay on every desktop"; ObjectID = "Jx9-hA-0E6"; */
+"Jx9-hA-0E6.title" = "在所有桌面显示本应用";
 
-"FKq-OS-Ctt.title" = "翻译为简体中文时:";
+/* Class = "NSTextFieldCell"; title = "Translate Into Chinese:"; ObjectID = "rtz-WN-0mA"; */
+"rtz-WN-0mA.title" = "翻译为中文时:";
+
+/* Class = "NSButtonCell"; title = "Look up English words in dictionary"; ObjectID = "2rM-sh-0Yd"; */
+"2rM-sh-0Yd.title" = "在英汉词典中查找单词";
