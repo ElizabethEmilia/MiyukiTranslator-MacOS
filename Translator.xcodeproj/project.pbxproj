@@ -16,7 +16,6 @@
 		D7816FB7259BA8BA009AA224 /* MainWindowSideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FB6259BA8BA009AA224 /* MainWindowSideViewController.swift */; };
 		D7816FBF259BA9C6009AA224 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FBE259BA9C6009AA224 /* MainWindowController.swift */; };
 		D7816FC4259BAAA9009AA224 /* MainWindowContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FC3259BAAA9009AA224 /* MainWindowContentViewController.swift */; };
-		D7816FC9259BBD87009AA224 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FC8259BBD87009AA224 /* DispatchQueue.swift */; };
 		D7816FCE259BC718009AA224 /* BaiduTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FCD259BC718009AA224 /* BaiduTranslate.swift */; };
 		D7816FD3259BDDA1009AA224 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7816FD2259BDDA1009AA224 /* MainWindow.swift */; };
 		D7BB4C3525A07274001F8952 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7BB4C3725A07274001F8952 /* Localizable.strings */; };
@@ -62,7 +61,6 @@
 		D7816FB6259BA8BA009AA224 /* MainWindowSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowSideViewController.swift; sourceTree = "<group>"; };
 		D7816FBE259BA9C6009AA224 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		D7816FC3259BAAA9009AA224 /* MainWindowContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowContentViewController.swift; sourceTree = "<group>"; };
-		D7816FC8259BBD87009AA224 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		D7816FCD259BC718009AA224 /* BaiduTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaiduTranslate.swift; sourceTree = "<group>"; };
 		D7816FD2259BDDA1009AA224 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		D7BB4C3625A07274001F8952 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -100,11 +98,6 @@
 		D7636F0C259B8FE200D20D90 = {
 			isa = PBXGroup;
 			children = (
-				D7FBF98925A439ED00968452 /* DictionaryAPI.swift */,
-				D7F1E86C259F8A2700BBB41B /* Constants.swift */,
-				D7F1E867259F817200BBB41B /* PreferenceViewController.swift */,
-				D7816FCD259BC718009AA224 /* BaiduTranslate.swift */,
-				D7816FC8259BBD87009AA224 /* DispatchQueue.swift */,
 				D7636F17259B8FE200D20D90 /* Translator */,
 				D7636F2A259B8FE500D20D90 /* TranslatorTests */,
 				D7636F35259B8FE500D20D90 /* TranslatorUITests */,
@@ -125,6 +118,10 @@
 		D7636F17259B8FE200D20D90 /* Translator */ = {
 			isa = PBXGroup;
 			children = (
+				D7FBF98925A439ED00968452 /* DictionaryAPI.swift */,
+				D7F1E86C259F8A2700BBB41B /* Constants.swift */,
+				D7F1E867259F817200BBB41B /* PreferenceViewController.swift */,
+				D7816FCD259BC718009AA224 /* BaiduTranslate.swift */,
 				D7636F18259B8FE200D20D90 /* AppDelegate.swift */,
 				D7636F1A259B8FE200D20D90 /* ViewController.swift */,
 				D7816FB6259BA8BA009AA224 /* MainWindowSideViewController.swift */,
@@ -222,7 +219,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					D7636F14259B8FE200D20D90 = {
 						CreatedOnToolsVersion = 12.2;
@@ -301,7 +298,6 @@
 				D7816FBF259BA9C6009AA224 /* MainWindowController.swift in Sources */,
 				D7816FCE259BC718009AA224 /* BaiduTranslate.swift in Sources */,
 				D7636F19259B8FE200D20D90 /* AppDelegate.swift in Sources */,
-				D7816FC9259BBD87009AA224 /* DispatchQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,13 +477,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Translator/Translator.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				INFOPLIST_FILE = Translator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liuzhixun.Translator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -500,13 +499,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Translator/Translator.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				INFOPLIST_FILE = Translator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liuzhixun.Translator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

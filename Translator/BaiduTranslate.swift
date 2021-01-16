@@ -37,7 +37,7 @@ func generateSignOfBaiduAPI(textToTranslate: String!, saltNumber: Int!, appID: S
 extension String {
     
     func encodeURIComponent() -> String? {
-        var characterSet = NSMutableCharacterSet.alphanumeric()
+        let characterSet = NSMutableCharacterSet.alphanumeric()
         characterSet.addCharacters(in: "-_.!~*'()+&")
         let _r = self.addingPercentEncoding(withAllowedCharacters: characterSet as CharacterSet)
         if var r = _r {
