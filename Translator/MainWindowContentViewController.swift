@@ -86,7 +86,7 @@ class MainWindowContentViewController: NSViewController {
     }
     
     func lookupDictionary(word: String) {
-        lookupDictionaryAsync(word: word, onComplete: {
+        _ = lookupDictionaryAsync(word: word, onComplete: {
             (html: String) in
             self.isDictionaryResult = true
             self.dictResultHTML = html
@@ -184,7 +184,7 @@ class MainWindowContentViewController: NSViewController {
                 let isInChinese = nonAsciiCount > charArr.count / 3
                 let isEnglishWord = nonLetterCount == 0
                 let doNotTranslateIfInChinese = UserDefaults.standard.integer(forKey: "whenMeetChineseCharacter") == 0
-                let translateToAnotherLanguage = !doNotTranslateIfInChinese
+                //let translateToAnotherLanguage = !doNotTranslateIfInChinese
                 
                 if isInChinese && doNotTranslateIfInChinese {
                     return

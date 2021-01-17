@@ -743,7 +743,6 @@
                     <connections>
                         <outlet property="toolBarItemSearch" destination="bzd-Qh-OHp" id="8gf-LH-lqt"/>
                         <outlet property="txtLookUp" destination="kt6-50-WXg" id="6gC-lC-suQ"/>
-                        <outlet property="txtLoopUp" destination="kt6-50-WXg" id="9AI-eY-mwe"/>
                         <segue destination="a6P-bf-Nqd" kind="relationship" relationship="window.shadowedContentViewController" id="5zu-d1-rvD"/>
                     </connections>
                 </windowController>
