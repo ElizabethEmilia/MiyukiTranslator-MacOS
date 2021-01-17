@@ -54,6 +54,7 @@ func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:Stri
         onError(0, "UNAUTHORIZED USER");
         return
     }
+    print("Baidu Translate APPID = \(appID!)")
     if (langFrom == nil || langTo == nil) {
         onError(9, "Internal Error: cannot choose language to translate into");
         return
