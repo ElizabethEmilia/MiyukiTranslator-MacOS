@@ -17,8 +17,26 @@ class PreferenceViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var chkEveryDesktop: NSButton!
     @IBOutlet weak var chkLookupInDict: NSButton!
     
+    func assignUserDefaultsToWindowState(keyPath: String) {
+        if keyPath == KEY_TOP_MOST {
+            print(UserDefaults.standard.bool(forKey: KEY_TOP_MOST))
+            view.window?.level = UserDefaults.standard.bool(forKey: KEY_TOP_MOST) ? .floating : .normal
+        }
+        else if keyPath == KEY_SHOW_ON_EVERY_DESKTOP {
+            view.window?.collectionBehavior = UserDefaults.standard.bool(forKey: KEY_SHOW_ON_EVERY_DESKTOP) ? [ .canJoinAllSpaces] : [ .fullScreenNone ]
+        }
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == nil { return }
+        assignUserDefaultsToWindowState(keyPath: keyPath!)
+    }
+    
     override func viewDidAppear() {
-        view.window?.level = .floating
+        assignUserDefaultsToWindowState(keyPath: "topMost")
+        assignUserDefaultsToWindowState(keyPath: "everyDesktop")
+        UserDefaults.standard.addObserver(self, forKeyPath: "topMost", options: .new, context: nil)
+        UserDefaults.standard.addObserver(self, forKeyPath: "everyDesktop", options: .new, context: nil)
     }
     
     override func viewDidLoad() {

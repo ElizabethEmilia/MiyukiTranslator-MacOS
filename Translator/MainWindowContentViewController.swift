@@ -25,12 +25,12 @@ class MainWindowContentViewController: NSViewController {
     }
     
     func assignUserDefaultsToWindowState(keyPath: String) {
-        if keyPath == "topMost" {
-            print(UserDefaults.standard.bool(forKey: "topMost"))
-            view.window?.level = UserDefaults.standard.bool(forKey: "topMost") ? .floating : .normal
+        if keyPath == KEY_TOP_MOST {
+            print(UserDefaults.standard.bool(forKey: KEY_TOP_MOST))
+            view.window?.level = UserDefaults.standard.bool(forKey: KEY_TOP_MOST) ? .floating : .normal
         }
-        else if keyPath == "everyDesktop" {
-            view.window?.collectionBehavior = UserDefaults.standard.bool(forKey: "everyDesktop") ? [ .canJoinAllSpaces] : [ .fullScreenNone ]
+        else if keyPath == KEY_SHOW_ON_EVERY_DESKTOP {
+            view.window?.collectionBehavior = UserDefaults.standard.bool(forKey: KEY_SHOW_ON_EVERY_DESKTOP) ? [ .canJoinAllSpaces] : [ .fullScreenNone ]
         }
     }
     
@@ -136,7 +136,7 @@ class MainWindowContentViewController: NSViewController {
         }
         
         // Set timer to check clipbpard
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (t) in
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { (t) in
             let pccount = NSPasteboard.general.changeCount
             if self.lastPasteboardCount == pccount {
                 return
@@ -145,7 +145,7 @@ class MainWindowContentViewController: NSViewController {
             // read from clipboard
             let strInPasteboard = NSPasteboard.general.string(forType: NSPasteboard.PasteboardType.string)
             if let str = strInPasteboard {
-                if str == "" || str == self.storedStringInPasteBoard {
+                if str == "" {
                     return
                 }
                 // check theme
