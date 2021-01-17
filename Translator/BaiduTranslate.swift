@@ -49,7 +49,16 @@ extension String {
     }
 }
 
-func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:String!, langTo:String!, appID: String!, appKey: String!, onComplete: @escaping (String)->(Void), onError: @escaping (Int, String)->(Void)) -> Void {
+func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:String?, langTo:String?, appID: String?, appKey: String?, onComplete: @escaping (String)->(Void), onError: @escaping (Int, String)->(Void)) -> Void {
+    if (appID == nil || appKey == nil) {
+        onError(0, "UNAUTHORIZED USER");
+        return
+    }
+    if (langFrom == nil || langTo == nil) {
+        onError(9, "Internal Error: cannot choose language to translate into");
+        return
+    }
+    
     let baseURL = "https://api.fanyi.baidu.com/api/trans/vip/translate?";
     
     // 处理待翻译的字符串
@@ -64,7 +73,7 @@ func translateUsingBaiduTranslateAPIAsync(textToTranslate:String!, langFrom:Stri
     let textToTranslatedEncoded = textToTranslate.encodeURIComponent()
     print("Encoded: \(textToTranslatedEncoded!)")
     // 拼接GET参
-    let params = "q=\(textToTranslatedEncoded!)&from=\(langFrom!)&to=\(langTo!)&appid=\(appID.encodeURIComponent()!)&salt=\(saltNumber)&sign=\(sign)"
+    let params = "q=\(textToTranslatedEncoded!)&from=\(langFrom!)&to=\(langTo!)&appid=\(appID!.encodeURIComponent()!)&salt=\(saltNumber)&sign=\(sign)"
     let urlToRequest = "\(baseURL)\(params)"
     
     let url: URL = URL(string: urlToRequest)!

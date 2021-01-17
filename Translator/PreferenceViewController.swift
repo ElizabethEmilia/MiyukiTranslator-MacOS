@@ -34,49 +34,49 @@ class PreferenceViewController: NSViewController, NSTextFieldDelegate {
         
         // Load user defaults
         let defaults = UserDefaults.standard;
-        txtAppID.stringValue = defaults.string(forKey: "API.ID") ?? ""
+        txtAppID.stringValue = defaults.string(forKey: KEY_APP_ID) ?? ""
         txtAppID.delegate = self
-        txtAppKey.stringValue = defaults.string(forKey:  "API.Key") ?? ""
+        txtAppKey.stringValue = defaults.string(forKey:  KEY_APP_KEY) ?? ""
         txtAppKey.delegate = self
-        translateInto.selectItem(at: defaults.integer(forKey: "translateInto"))
+        translateInto.selectItem(at: defaults.integer(forKey: KEY_TRANSLATE_INTO))
         self.selectTranslateInto(translateInto!)
-        if defaults.integer(forKey: "whenMeetChineseCharacter") == 0 {
+        if defaults.integer(forKey: KEY_WHEN_MEET_CHINESE_CHARACTER) == 0 {
             doNotTranslateWhenMeetChineseCharacter.state = .on
         }
         else {
             TranslatrIntoAnotherLanguage.state = .on
         }
-        chkTopMost.state = defaults.bool(forKey: "topMost") ? .on : .off
-        chkEveryDesktop.state = defaults.bool(forKey: "everyDesktop") ? .on : .off
-        chkLookupInDict.state = defaults.bool(forKey: "lookupDict") ? .on : .off
+        chkTopMost.state = defaults.bool(forKey: KEY_TOP_MOST) ? .on : .off
+        chkEveryDesktop.state = defaults.bool(forKey: KEY_SHOW_ON_EVERY_DESKTOP) ? .on : .off
+        chkLookupInDict.state = defaults.bool(forKey: KEY_LOOKUP_DICT) ? .on : .off
     }
     
     @IBAction func selectTranslateInto(_ sender: Any) {
-        UserDefaults.standard.setValue(self.translateInto.indexOfSelectedItem, forKey: "translateInto")
+        UserDefaults.standard.setValue(self.translateInto.indexOfSelectedItem, forKey: KEY_TRANSLATE_INTO)
         TranslatrIntoAnotherLanguage.title = "\(NSLocalizedString("Translate Into", comment: ""))\(self.translateInto.indexOfSelectedItem == 0 ? NSLocalizedString("English", comment: "") : constant__get_languages()[self.translateInto.indexOfSelectedItem])"
     }
     
     @IBAction func chooseChineseCharacterAction(_ sender: Any) {
         if let s = sender as? NSButton {
-            UserDefaults.standard.setValue(s.tag, forKey: "whenMeetChineseCharacter")
+            UserDefaults.standard.setValue(s.tag, forKey: KEY_WHEN_MEET_CHINESE_CHARACTER)
         }
     }
     
     @IBAction func wangToLookUpInDict(_ sender: Any) {
         if let s = sender as? NSButton {
-            UserDefaults.standard.setValue(s.state == .on, forKey: "lookupDict")
+            UserDefaults.standard.setValue(s.state == .on, forKey: KEY_LOOKUP_DICT)
         }
     }
     
     @IBAction func changeIfStayOnTop(_ sender: Any) {
         if let s = sender as? NSButton {
-            UserDefaults.standard.setValue(s.state == .on, forKey: "topMost")
+            UserDefaults.standard.setValue(s.state == .on, forKey: KEY_TOP_MOST)
         }
     }
     
     @IBAction func changeIfInEveryDesktop(_ sender: Any) {
         if let s = sender as? NSButton {
-            UserDefaults.standard.setValue(s.state == .on, forKey: "everyDesktop")
+            UserDefaults.standard.setValue(s.state == .on, forKey: KEY_SHOW_ON_EVERY_DESKTOP)
         }
     }
     
@@ -90,11 +90,11 @@ class PreferenceViewController: NSViewController, NSTextFieldDelegate {
     func controlTextDidChange(_ obj: Notification) {
         print("edited: ")
         if let textField = obj.object as? NSTextField, self.txtAppID.identifier == textField.identifier {
-            UserDefaults.standard.setValue(textField.stringValue, forKey: "API.ID")
+            UserDefaults.standard.setValue(textField.stringValue, forKey: KEY_APP_ID)
             print(textField.stringValue)
         }
         else if let textField = obj.object as? NSTextField, self.txtAppKey.identifier == textField.identifier {
-            UserDefaults.standard.setValue(textField.stringValue, forKey: "API.Key")
+            UserDefaults.standard.setValue(textField.stringValue, forKey: KEY_APP_KEY)
             print(textField.stringValue)
         }
     }

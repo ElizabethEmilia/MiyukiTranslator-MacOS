@@ -122,3 +122,12 @@ func ui_template__dictionary_result(htmlString: String, backColor: String, fontC
     </html>
 """
 }
+
+let KEY_APP_ID = "AppID"
+let KEY_APP_KEY = "AppKey"
+let KEY_TRANSLATE_INTO = "translateInto"
+let KEY_WHEN_MEET_CHINESE_CHARACTER = "whenMeetChineseCharacter"
+let KEY_TOP_MOST = "topMost"
+let KEY_SHOW_ON_EVERY_DESKTOP = "everyDesktop"
+let KEY_LOOKUP_DICT = "lookupDict"
+

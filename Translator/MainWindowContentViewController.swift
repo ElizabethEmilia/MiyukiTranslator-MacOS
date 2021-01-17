@@ -59,7 +59,7 @@ class MainWindowContentViewController: NSViewController {
     var lastPasteboardCount = 0
     
     func translateWithBaidu(str: String, strToShow: String, langTo: String) {
-        translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: UserDefaults.standard.string(forKey: "API.ID"), appKey: UserDefaults.standard.string(forKey: "API.Key"),
+        translateUsingBaiduTranslateAPIAsync(textToTranslate: str, langFrom: "auto", langTo: langTo, appID: UserDefaults.standard.string(forKey: KEY_APP_ID), appKey: UserDefaults.standard.string(forKey: KEY_APP_KEY),
             onComplete: { (ret: String) in
                 let translatedResult = ret.replacingOccurrences(of: "<", with: "&lt;")
                         .replacingOccurrences(of: ">", with: "&gt;")

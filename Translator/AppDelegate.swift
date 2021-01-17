@@ -16,14 +16,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         
         // Initialize user defaults
+        
+        print("Enterring configure setting...")
         let defaults = UserDefaults.standard;
-        defaults.setValue("", forUndefinedKey: "API.ID")
-        defaults.setValue("", forUndefinedKey: "API.Key")
-        defaults.setValue(0, forUndefinedKey: "translateInto")
-        defaults.setValue(0, forUndefinedKey: "whenMeetChineseCharacter")
-        defaults.setValue(true, forUndefinedKey: "topMost")
-        defaults.setValue(true, forUndefinedKey: "everyDesktop")
-        defaults.setValue(true, forUndefinedKey: "lookupDict")
+        print("done)")
+        if (defaults.object(forKey: KEY_APP_ID) == nil) {
+            defaults.setValue("", forKey: KEY_APP_ID)
+        }
+        if (defaults.object(forKey: KEY_APP_KEY) == nil) {
+            defaults.setValue("", forKey: KEY_APP_KEY)
+        }
+        if (defaults.object(forKey: KEY_TRANSLATE_INTO) == nil) {
+            defaults.setValue(0, forKey: KEY_TRANSLATE_INTO)
+        }
+        if (defaults.object(forKey: KEY_WHEN_MEET_CHINESE_CHARACTER) == nil) {
+            defaults.setValue(0, forKey: KEY_WHEN_MEET_CHINESE_CHARACTER)
+        }
+        if (defaults.object(forKey: KEY_TOP_MOST) == nil) {
+            defaults.setValue(true, forKey: KEY_TOP_MOST)
+        }
+        if (defaults.object(forKey: KEY_SHOW_ON_EVERY_DESKTOP) == nil) {
+            defaults.setValue(true, forKey: KEY_SHOW_ON_EVERY_DESKTOP)
+        }
+        if (defaults.object(forKey: KEY_LOOKUP_DICT) == nil) {
+            defaults.setValue(true, forKey: KEY_LOOKUP_DICT)
+            print("set default KEY_LOOKUP_DICT to: \( defaults.bool(forKey: KEY_LOOKUP_DICT) )")
+        }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
