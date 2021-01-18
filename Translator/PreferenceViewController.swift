@@ -12,7 +12,7 @@ class PreferenceViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var doNotTranslateWhenMeetChineseCharacter: NSButton!
     @IBOutlet weak var TranslatrIntoAnotherLanguage: NSButton!
     @IBOutlet weak var txtAppID: NSTextField!
-    @IBOutlet weak var txtAppKey: NSSecureTextField!
+    @IBOutlet weak var txtAppKey: NSTextField!
     @IBOutlet weak var chkTopMost: NSButton!
     @IBOutlet weak var chkEveryDesktop: NSButton!
     @IBOutlet weak var chkLookupInDict: NSButton!

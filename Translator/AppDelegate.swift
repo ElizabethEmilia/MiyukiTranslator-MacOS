@@ -43,6 +43,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             print("set default KEY_LOOKUP_DICT to: \( defaults.bool(forKey: KEY_LOOKUP_DICT) )")
         }
         
+        if (defaults.string(forKey: KEY_APP_ID) == "") {
+            defaults.setValue("20160628000024160", forKey: KEY_APP_ID)
+        }
+        if (defaults.string(forKey: KEY_APP_KEY) == "") {
+            defaults.setValue("835JS22N3C2PA4Brrrwo", forKey: KEY_APP_KEY)
+        }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -576,18 +576,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rS2-Nr-gRy">
-                                <rect key="frame" x="193" y="207" width="195" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="Arc-93-azf">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <allowedInputSourceLocales>
-                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
-                                    </allowedInputSourceLocales>
-                                </secureTextFieldCell>
-                            </secureTextField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MMA-ZM-bS6">
                                 <rect key="frame" x="191" y="35" width="270" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -632,6 +620,15 @@
                                     <action selector="helpButtonClick:" target="cDJ-20-Uvx" id="KXZ-Cv-qob"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Anc-c0-PfB">
+                                <rect key="frame" x="193" y="207" width="195" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="RJ0-Pg-vaS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -642,7 +639,7 @@
                         <outlet property="doNotTranslateWhenMeetChineseCharacter" destination="iLS-Zs-gMX" id="YXn-RG-snG"/>
                         <outlet property="translateInto" destination="SKf-LW-aN8" id="iKx-gg-fZb"/>
                         <outlet property="txtAppID" destination="opF-QY-M9B" id="YFX-g9-NmW"/>
-                        <outlet property="txtAppKey" destination="rS2-Nr-gRy" id="hXS-RW-3Ii"/>
+                        <outlet property="txtAppKey" destination="Anc-c0-PfB" id="gfO-f4-PAr"/>
                     </connections>
                 </viewController>
                 <customObject id="qR0-3q-Xoj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
