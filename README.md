@@ -3,6 +3,7 @@
 <p align="center">
 <img src="docs/social.png" ><br/>
 </p>
+<a href="https://apps.apple.com/cn/app/miyuki%E7%BF%BB%E8%AF%91%E5%99%A8/id1548115311"><img src="docs/download-from-appstore.png" width="200"/></a>
 
 ## Introduction
 
@@ -23,6 +24,5 @@ An application than can translate texts from clipboard.
 
 
 <img src="docs/example.png" alt="drawing" >
-
 ____
 by Miyuki, December 2020
